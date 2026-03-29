@@ -12,7 +12,8 @@ build/
 
 # Environment
 .env
-.env.*
+.env.local
+.env.*.local
 
 # Vector DB and runtime data
 asa_vector_db/
