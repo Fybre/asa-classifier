@@ -45,8 +45,6 @@ services:
   paddleocr-service:
     build: ./paddleocr_service
     container_name: paddleocr-service
-    ports:
-      - "8080:8080"
     restart: unless-stopped
 
   # Ollama LLM Service — only started with: docker compose --profile ollama up
