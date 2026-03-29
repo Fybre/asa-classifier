@@ -1,0 +1,1258 @@
+{
+    "1.1": {
+        "code": "1.1",
+        "hierarchy": "Governance > Establishment > -",
+        "description": "Formal arrangements for the establishment of a new school",
+        "disposal_action": "Retain permanently",
+        "examples": "Certificate of Incorporation; Memorandum & Articles of Association; planning documentation; records of community consultation; documentation of the opening; photographs",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and"
+    },
+    "1.2": {
+        "code": "1.2",
+        "hierarchy": "Governance > Closure > -",
+        "description": "Formal arrangements for the closure of a school",
+        "disposal_action": "Retain permanently",
+        "examples": "Legal documents",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and"
+    },
+    "1.3": {
+        "code": "1.3",
+        "hierarchy": "Governance > Council and Committees > -",
+        "description": "Structure, membership, deliberations and operation of the school's governing Council (or equivalent) and committees, senior management group, and Student Council",
+        "disposal_action": "Retain permanently",
+        "examples": "constitution; terms of reference; election documents; appointments; papers and minutes of Council/Board and senior committee meetings",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and"
+    },
+    "1.4": {
+        "code": "1.4",
+        "hierarchy": "Governance > Regulation > -",
+        "description": "Accreditation, registration,  licensing, approval and regulation of the school to be an educational provider, including family day care educator.   Includes registration as a student exchange organisation, a Registered Training Organisation and as an International Baccalaureate school. Includes its approvals for courses ",
+        "disposal_action": "Retain permanently",
+        "examples": "Applications for registration and supporting documentation; approvals; renewals; information requests; cancellations; suspensions",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and"
+    },
+    "1.5": {
+        "code": "1.5",
+        "hierarchy": "Governance > Compliance Monitoring > -",
+        "description": "Formal review against standards of the governance, enrolments, curriculum and student performance, student welfare, staff employment and school infrastructure.  Includes external and internal assessment or review",
+        "disposal_action": "Retain permanently",
+        "examples": "Guidelines and standards; formal inspections; reviews; audits; results of assessments against standards",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and"
+    },
+    "1.6": {
+        "code": "1.6",
+        "hierarchy": "Governance > Planning > -",
+        "description": "Strategic planning, reporting and reviewing or evaluating processes, procedures and school standards.",
+        "disposal_action": "Retain permanently",
+        "examples": "Strategic plans; business plans; documentation of internal reviews",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and"
+    },
+    "1.7": {
+        "code": "1.7",
+        "hierarchy": "Governance > Delegations and Authorisations > -",
+        "description": "Delegations of power to staff to authorise financial or other decision-making and transactions",
+        "disposal_action": "Destroy 7 years after delegation expires",
+        "examples": "Delegations and Authorisations",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and"
+    },
+    "1.8.1": {
+        "code": "1.8.1",
+        "hierarchy": "Governance > Agreements/Contracts > Register",
+        "description": "Summary of all agreements/contracts entered into by the school",
+        "disposal_action": "Retain permanently",
+        "examples": "Contracts register or system",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and | 1.8GOVERNANCE - Agreements/ c ontracts Agreements/"
+    },
+    "1.8.2": {
+        "code": "1.8.2",
+        "hierarchy": "Governance > Agreements/Contracts > Successful - Major",
+        "description": "Negotiation, establishment and maintenance of major agreements with external organisations relating to the provision of services",
+        "disposal_action": "Destroy 15 years after agreement/ contract expires",
+        "examples": "Specifications; tender and negotiation records; quotations; assessments of tenders; final agreements/contracts; service level agreements",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and | 1.8GOVERNANCE - Agreements/ c ontracts Agreements/"
+    },
+    "1.8.3": {
+        "code": "1.8.3",
+        "hierarchy": "Governance > Agreements/Contracts > Successful - Minor",
+        "description": "Establishment and maintenance of minor agreements with external organisations for small scale-service provision.",
+        "disposal_action": "Destroy 7 years after agreement expires",
+        "examples": "Final agreements/contracts; service level agreements; tender and negotiation records",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and | 1.8GOVERNANCE - Agreements/ c ontracts Agreements/"
+    },
+    "1.8.4": {
+        "code": "1.8.4",
+        "hierarchy": "Governance > Agreements/Contracts > Unsuccessful",
+        "description": "Unsuccessful tenders or a tender/contracting process where there is no suitable provider, or where the tender/contracting process has been discontinued",
+        "disposal_action": "Destroy 2 years after tender process completed or discontinued",
+        "examples": "nan",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and | 1.8GOVERNANCE - Agreements/ c ontracts Agreements/"
+    },
+    "1.8.5": {
+        "code": "1.8.5",
+        "hierarchy": "Governance > Agreements/ Contracts > Submissions",
+        "description": "Submissions to external organisations, including regulatory bodies and government inquiries, on issues relevant to the core responsibilities of the school.",
+        "disposal_action": "Retain permanently",
+        "examples": "Statements; business cases; supporting information; working papers ",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and | 1.8GOVERNANCE - Agreements/ c ontracts Agreements/"
+    },
+    "1.9": {
+        "code": "1.9",
+        "hierarchy": "Governance > Submissions > -",
+        "description": "Submissions to external organisations, including regulatory bodies and government inquiries, on issues relevant to the core responsibilities of the school",
+        "disposal_action": "Retain permanently",
+        "examples": "Statements; business cases; supporting information; working papers",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and"
+    },
+    "1.10": {
+        "code": "1.10",
+        "hierarchy": "Governance > Policies and Procedures > -",
+        "description": " Development and establishment of decisions, directions and precedents, to support future decision making and operations",
+        "disposal_action": "Retain permanently",
+        "examples": "Final policies; final procedures; working papers where they are likely to be reused",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and"
+    },
+    "1.11": {
+        "code": "1.11",
+        "hierarchy": "Governance > Reporting > -",
+        "description": "Provision of formal responses to a requirement, situation or request (internal or external), e.g. reports to regulatory bodies, results of investigations, statistics. Includes public reporting such as the school's Annual Report.",
+        "disposal_action": "Retain permanently",
+        "examples": "School Performance Information reports; parent, staff and student surveys",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and"
+    },
+    "1.12": {
+        "code": "1.12",
+        "hierarchy": "Governance > Child Protection > -",
+        "description": "Frameworks, programs, reviews relating to child protection",
+        "disposal_action": "Retain permanently",
+        "examples": "nan",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and"
+    },
+    "1.13": {
+        "code": "1.13",
+        "hierarchy": "Governance > Corporate Identity > -",
+        "description": "Development and protection of the name, coat of arms, crest, motto, logo or seal of the school",
+        "disposal_action": "Retain permanently",
+        "examples": "nan",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and"
+    },
+    "1.14.1.1": {
+        "code": "1.14.1.1",
+        "hierarchy": "Governance > Legal Services > Advice",
+        "description": "Advice on issues of public interest or controversy, or which results in a change to school policy",
+        "disposal_action": "Retain permanently",
+        "examples": "Major Issues",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and | 1.14GOVERNANCE - Leg al s ervic es Legal services | 1.14.1GOVERNANCE - L egal servi ces  - Advic e Advice Seeking and receiving legal advice on any"
+    },
+    "1.14.1.2": {
+        "code": "1.14.1.2",
+        "hierarchy": "Governance > Legal Services > Advice",
+        "description": "Advice on issues that are not of public interest or controversy",
+        "disposal_action": "Destroy 20 years after matter resolved",
+        "examples": "nan",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and | 1.14GOVERNANCE - Leg al s ervic es Legal services | 1.14.1GOVERNANCE - L egal servi ces  - Advic e Advice Seeking and receiving legal advice on any"
+    },
+    "1.14.2.1": {
+        "code": "1.14.2.1",
+        "hierarchy": "Governance > Legal Services > Litigation",
+        "description": "Matters where legal precedents are set, or are of public interest or controversy, or lead to a change in school policy -  Permanent",
+        "disposal_action": "Retain permanently",
+        "examples": "nan",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and | 1.14GOVERNANCE - Leg al s ervic es Legal services | 1.14.2GOVERNANCE - L egal servi ces  - L itigation Litigation Managing lawsuits or legal proceedings"
+    },
+    "1.14.2.2": {
+        "code": "1.14.2.2",
+        "hierarchy": "Governance > Legal Services > Litigation",
+        "description": "That are not of public interest or controversy",
+        "disposal_action": " Destroy 15 years after case resolved",
+        "examples": "nan",
+        "parent_context": "1GOVERNANCE GOVERNANCE Managing school accountability and | 1.14GOVERNANCE - Leg al s ervic es Legal services | 1.14.2GOVERNANCE - L egal servi ces  - L itigation Litigation Managing lawsuits or legal proceedings"
+    },
+    "2.1.1": {
+        "code": "2.1.1",
+        "hierarchy": "Administration > Finance > Financial Records - Annual",
+        "description": "Annual summaries of the school's financial position that are audited or used for other reporting",
+        "disposal_action": "Retain permanently",
+        "examples": "Annual financial statements, statutory financial reports, balance sheets, operating statements, cash flow statements and accompanying notes",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.1ADMINISTRATION  - Finance Finance Management of the school\u2019s financial"
+    },
+    "2.1.2": {
+        "code": "2.1.2",
+        "hierarchy": "Administration > Finance > Accounting",
+        "description": "Accounting records and associated supporting records related to managing the school's revenue and expenditure",
+        "disposal_action": "Destroy 7 years after end of financial year in which the record was created",
+        "examples": "Accounts payable; accounts receivable; routine financial statements and reports; credit notices; petty cash records; cash books; journals, ledgers and other records; bank deposit records; bank statements; bank reconciliation statements; investment and dividend statements; credit card statements; interim financial statements",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.1ADMINISTRATION  - Finance Finance Management of the school\u2019s financial"
+    },
+    "2.1.3": {
+        "code": "2.1.3",
+        "hierarchy": "Administration > Finance > Banking",
+        "description": "Establishment and closure of bank accounts, including investment accounts.",
+        "disposal_action": "Destroy 7 years after account closed",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.1ADMINISTRATION  - Finance Finance Management of the school\u2019s financial"
+    },
+    "2.1.4": {
+        "code": "2.1.4",
+        "hierarchy": "Administration > Finance > Audit",
+        "description": "Conduct and reporting of financial or performance audits by internal and external parties.",
+        "disposal_action": "Destroy 7 years after audit results accepted",
+        "examples": "Arrangements for audit; reports",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.1ADMINISTRATION  - Finance Finance Management of the school\u2019s financial"
+    },
+    "2.1.5.1": {
+        "code": "2.1.5.1",
+        "hierarchy": "Administration > Finance > Assets",
+        "description": "Summary listing the school's assets. ",
+        "disposal_action": "Retain permanently",
+        "examples": "Asset register",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.1ADMINISTRATION  - Finance Finance Management of the school\u2019s financial | 2.1.5ADMINISTRA TION - Finance - Ass ets Assets Financial management of capital assets such"
+    },
+    "2.1.5.2": {
+        "code": "2.1.5.2",
+        "hierarchy": "Administration > Finance > Assets",
+        "description": "Asset valuation and asset management processes. ",
+        "disposal_action": "Destroy 7 years after action completed ",
+        "examples": "Advices for inclusion on the asset register, valuation reports",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.1ADMINISTRATION  - Finance Finance Management of the school\u2019s financial | 2.1.5ADMINISTRA TION - Finance - Ass ets Assets Financial management of capital assets such"
+    },
+    "2.1.6": {
+        "code": "2.1.6",
+        "hierarchy": "Administration > Finance > Budgeting",
+        "description": "Compilation of annual budgets",
+        "disposal_action": "Destroy 7 years after end of financial year in which the record was created",
+        "examples": "Budget calculations; final budget",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.1ADMINISTRATION  - Finance Finance Management of the school\u2019s financial"
+    },
+    "2.1.7": {
+        "code": "2.1.7",
+        "hierarchy": "Administration > Finance > Funding",
+        "description": "Successful and unsuccessful applications for grant or other funding.",
+        "disposal_action": "Destroy 7 years after end of financial year to which the application relates ",
+        "examples": "Submissions; agreements; supporting correspondence",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.1ADMINISTRATION  - Finance Finance Management of the school\u2019s financial"
+    },
+    "2.1.8": {
+        "code": "2.1.8",
+        "hierarchy": "Administration > Finance > Fees",
+        "description": "Setting of fees and charges for school services, programs, etc. ",
+        "disposal_action": "Destroy 7 years after end of financial year to which the fees relate ",
+        "examples": "Calculations; final fee schedule; exceptions ",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.1ADMINISTRATION  - Finance Finance Management of the school\u2019s financial"
+    },
+    "2.1.9": {
+        "code": "2.1.9",
+        "hierarchy": "Administration > Finance > Taxation",
+        "description": "Administration of taxation matters, including income tax, land tax, payroll tax, goods and services tax, fringe benefits tax and any other taxes. Includes payment of taxes. ",
+        "disposal_action": "Destroy 5 years after end of financial year in which the record was created ",
+        "examples": "Tax assessments, instalment notices, payments. ",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.1ADMINISTRATION  - Finance Finance Management of the school\u2019s financial"
+    },
+    "2.1.10.1": {
+        "code": "2.1.10.1",
+        "hierarchy": "Administration > Finance > Insurance",
+        "description": "Management of claims against school insurance policies, other than Workers Compensation claims",
+        "disposal_action": "Destroy 7 years after claim resolved",
+        "examples": "Claims",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.1ADMINISTRATION  - Finance Finance Management of the school\u2019s financial | 2.1.10ADMINISTRATI ON - Finance - Insurance Insurance Insurances taken out to cover loss or damage"
+    },
+    "2.1.10.2": {
+        "code": "2.1.10.2",
+        "hierarchy": "Administration > Finance > Insurance",
+        "description": "Management of claims against school insurance policies, other than Workers Compensation claims. ",
+        "disposal_action": "Destroy 7 years after claim resolved ",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.1ADMINISTRATION  - Finance Finance Management of the school\u2019s financial | 2.1.10ADMINISTRATI ON - Finance - Insurance Insurance Insurances taken out to cover loss or damage"
+    },
+    "2.2.1": {
+        "code": "2.2.1",
+        "hierarchy": "Administration > Property > Acquisition And Disposal",
+        "description": "Acquisition and disposal of land or buildings. Includes acquisition through purchase, donation, bequest or other forms of acquisition.",
+        "disposal_action": "Retain permanently",
+        "examples": "Legal documents relating to a purchase / sale; particulars of sale documents; board of survey; deeds and certificates; conditions of contracts; certificates of approval; photographs",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.2ADMINISTRATION  - Property Property Management of the school's physical assets,"
+    },
+    "2.2.2": {
+        "code": "2.2.2",
+        "hierarchy": "Administration > Property > Construction And Renovation",
+        "description": "Building a new structure, or undertaking renovation that affects the overall structure or design of the property, including grounds.",
+        "disposal_action": "Retain permanently",
+        "examples": "Tender documentation; heritage and environmental reports; drawings;, plans; specifications; submissions to planning authorities; soil tests; photographs",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.2ADMINISTRATION  - Property Property Management of the school's physical assets,"
+    },
+    "2.2.3": {
+        "code": "2.2.3",
+        "hierarchy": "Administration > Property > Refurbishment",
+        "description": "Routine refurbishment of property that does not affect its overall structure or design",
+        "disposal_action": "Destroy 7 years after action completed",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.2ADMINISTRATION  - Property Property Management of the school's physical assets,"
+    },
+    "2.2.4": {
+        "code": "2.2.4",
+        "hierarchy": "Administration > Property > Maintenance",
+        "description": "Upkeep, repair and maintenance of property, including e.g. cleaning, painting, repairs, grounds maintenance and electrical maintenance. ",
+        "disposal_action": "Destroy 7 years after action completed ",
+        "examples": "Operating and maintenance manuals, test results and service log sheets for equipment including cooling towers; commissioning of refurbishment works ",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.2ADMINISTRATION  - Property Property Management of the school's physical assets,"
+    },
+    "2.2.5.1": {
+        "code": "2.2.5.1",
+        "hierarchy": "Administration > Property > Hazardous Materials",
+        "description": "Summary of hazardous substances (including asbestos) identifying substance properties and their condition. ",
+        "disposal_action": "Destroy 100 years after last entry",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.2ADMINISTRATION  - Property Property Management of the school's physical assets, | 2.2.5ADMINISTRA TION - Property - H azardous  Materials Hazardous Materials Identification and management of hazardous"
+    },
+    "2.2.5.2": {
+        "code": "2.2.5.2",
+        "hierarchy": "Administration > Property > Hazardous Materials",
+        "description": "Identification, removal and disposal of hazardous materials from the fabric of a building, e.g. asbestos ",
+        "disposal_action": "Destroy 100 years after removal of hazardous materials ",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.2ADMINISTRATION  - Property Property Management of the school's physical assets, | 2.2.5ADMINISTRA TION - Property - H azardous  Materials Hazardous Materials Identification and management of hazardous"
+    },
+    "2.2.5.3": {
+        "code": "2.2.5.3",
+        "hierarchy": "Administration > Property > Hazardous Materials",
+        "description": "Removal, storage and disposal of hazardous waste and materials that are not from the fabric of building, e.g. chemicals or pesticides. ",
+        "disposal_action": "Destroy 30 years after removal of hazardous waste ",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.2ADMINISTRATION  - Property Property Management of the school's physical assets, | 2.2.5ADMINISTRA TION - Property - H azardous  Materials Hazardous Materials Identification and management of hazardous"
+    },
+    "2.2.5.4": {
+        "code": "2.2.5.4",
+        "hierarchy": "Administration > Property > Hazardous Materials",
+        "description": "Management and disposal of non-toxic waste. ",
+        "disposal_action": "Destroy 2 years after waste disposed of ",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.2ADMINISTRATION  - Property Property Management of the school's physical assets, | 2.2.5ADMINISTRA TION - Property - H azardous  Materials Hazardous Materials Identification and management of hazardous"
+    },
+    "2.2.6": {
+        "code": "2.2.6",
+        "hierarchy": "Administration > Property > Security",
+        "description": "Measures taken to protect people, premises, equipment or facilities from accidental or intentional damage or from unauthorised access. ",
+        "disposal_action": "Destroy 7 years after action completed ",
+        "examples": "Records of accidents and damage to property; records of incidents of illegal entry resulting in damage and/or theft; register of keys ",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.2ADMINISTRATION  - Property Property Management of the school's physical assets,"
+    },
+    "2.2.7.1": {
+        "code": "2.2.7.1",
+        "hierarchy": "Administration > Property > Equipment And Stores",
+        "description": "Acquisition of equipment and stores where there is no tender or contracting-out process.",
+        "disposal_action": "Destroy 7 years after action completed ",
+        "examples": "Requests for quotations; orders; handover reports; correspondence ",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.2ADMINISTRATION  - Property Property Management of the school's physical assets, | 2.2.7ADMINISTRA TION - Property - Equipment and Stores Equipment and"
+    },
+    "2.2.7.2": {
+        "code": "2.2.7.2",
+        "hierarchy": "Administration > Property > Equipment And Stores",
+        "description": "Disposal of equipment and stores no longer required, by sale, transfer, termination of lease, auction, donation or destruction.",
+        "disposal_action": "Destroy 7 years after action completed ",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.2ADMINISTRATION  - Property Property Management of the school's physical assets, | 2.2.7ADMINISTRA TION - Property - Equipment and Stores Equipment and"
+    },
+    "2.2.7.3": {
+        "code": "2.2.7.3",
+        "hierarchy": "Administration > Property > Equipment And Stores",
+        "description": "Upkeep, repair, servicing, modification and preservation of internal/external condition of equipment ",
+        "disposal_action": "Destroy 7 years after action completed ",
+        "examples": "Service and maintenance records ",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.2ADMINISTRATION  - Property Property Management of the school's physical assets, | 2.2.7ADMINISTRA TION - Property - Equipment and Stores Equipment and"
+    },
+    "2.2.8": {
+        "code": "2.2.8",
+        "hierarchy": "Administration > Property > Facility Hire",
+        "description": "Hiring out of school facilities (e.g. hall, sports centre) for non-school purposes. ",
+        "disposal_action": "Destroy 7 years after hiring arrangement expired ",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.2ADMINISTRATION  - Property Property Management of the school's physical assets,"
+    },
+    "2.3.1": {
+        "code": "2.3.1",
+        "hierarchy": "Administration > Information Management > Intellectual Property",
+        "description": "Evidence of rights and entitlements over intellectual property owned by the school. ",
+        "disposal_action": "Retain permanently",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.3ADMINISTRATION  - Information Manag ement Information"
+    },
+    "2.3.2.1": {
+        "code": "2.3.2.1",
+        "hierarchy": "Administration > Information Management > Information Technology And Systems",
+        "description": "Acquisition of technology and telecommunication equipment, systems and services, where there is no tender or contracting-out process.  Includes licences.",
+        "disposal_action": "Destroy 7 years after equipment, system or services are decommissioned ",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.3ADMINISTRATION  - Information Manag ement Information | 2.3.2ADMINISTRA TION - Informati on Management - Informati on"
+    },
+    "2.3.2.2": {
+        "code": "2.3.2.2",
+        "hierarchy": "Administration > Information Management > Information Technology And Systems",
+        "description": "Implementation of hardware, communications and systems. Includes preliminary studies, system development, testing, modification. ",
+        "disposal_action": "Destroy 5 years after implementation completed and accepted ",
+        "examples": "Feasibility studies; technical manuals; business rules; user requirements; system specifications ",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.3ADMINISTRATION  - Information Manag ement Information | 2.3.2ADMINISTRA TION - Informati on Management - Informati on"
+    },
+    "2.3.2.3": {
+        "code": "2.3.2.3",
+        "hierarchy": "Administration > Information Management > Information Technology And Systems",
+        "description": "Ongoing management and maintenance of information technology and systems, including database management. Includes system controls, configuration management, security /protection from damage.",
+        "disposal_action": "Destroy 7 years after equipment or system is decommissioned ",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.3ADMINISTRATION  - Information Manag ement Information | 2.3.2ADMINISTRA TION - Informati on Management - Informati on"
+    },
+    "2.3.3.1": {
+        "code": "2.3.3.1",
+        "hierarchy": "Administration > Information Management > Privacy",
+        "description": "Management of breaches detected, or arising from a complaint.",
+        "disposal_action": "Destroy 15 years after case concluded",
+        "examples": "Complaints; investigations; reports",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.3ADMINISTRATION  - Information Manag ement Information | 2.3.3ADMINISTRA TION - Informati on Management - Privac y Privacy Activities involved in ensuring the school"
+    },
+    "2.3.3.2": {
+        "code": "2.3.3.2",
+        "hierarchy": "Administration > Information Management > Privacy",
+        "description": "Management of complaints that do not result in a privacy breach.",
+        "disposal_action": "Destroy 2 years after complaint resolved",
+        "examples": "Complaints; investigations; reports",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.3ADMINISTRATION  - Information Manag ement Information | 2.3.3ADMINISTRA TION - Informati on Management - Privac y Privacy Activities involved in ensuring the school"
+    },
+    "2.3.4.1": {
+        "code": "2.3.4.1",
+        "hierarchy": "Administration > Information Management > Recordkeeping And Archives",
+        "description": "Master control records for recordkeeping systems and archival collections.   ",
+        "disposal_action": "Retain permantely",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.3ADMINISTRATION  - Information Manag ement Information | 2.3.4ADMINISTRA TION - Informati on Management - R ec ordkeeping and"
+    },
+    "2.3.4.2": {
+        "code": "2.3.4.2",
+        "hierarchy": "Administration > Information Management > Recordkeeping And Archives",
+        "description": "Provision of research and reference services in response to internal and external enquiries or specific projects. ",
+        "disposal_action": "Retain permantely",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.3ADMINISTRATION  - Information Manag ement Information | 2.3.4ADMINISTRA TION - Informati on Management - R ec ordkeeping and"
+    },
+    "2.3.4.3": {
+        "code": "2.3.4.3",
+        "hierarchy": "Administration > Information Management > Recordkeeping And Archives",
+        "description": "Formal arrangements for receipt or refusal of donations or loans of material from external sources. ",
+        "disposal_action": "Retain permantely",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.3ADMINISTRATION  - Information Manag ement Information | 2.3.4ADMINISTRA TION - Informati on Management - R ec ordkeeping and"
+    },
+    "2.3.4.4": {
+        "code": "2.3.4.4",
+        "hierarchy": "Administration > Information Management > Recordkeeping And Archives",
+        "description": "Activities involved in the preservation, protection, maintenance, restoration and enhancement of information resources and artefacts. ",
+        "disposal_action": "Destroy after reference ceases ",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.3ADMINISTRATION  - Information Manag ement Information | 2.3.4ADMINISTRA TION - Informati on Management - R ec ordkeeping and"
+    },
+    "2.3.4.5": {
+        "code": "2.3.4.5",
+        "hierarchy": "Administration > Information Management > Recordkeeping And Archives",
+        "description": "Management of the storage of information resources including off-site or cloud storage. ",
+        "disposal_action": "Destroy 7 years after administrative use has concluded ",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.3ADMINISTRATION  - Information Manag ement Information | 2.3.4ADMINISTRA TION - Informati on Management - R ec ordkeeping and"
+    },
+    "2.4.1.1": {
+        "code": "2.4.1.1",
+        "hierarchy": "Administration > Human Resources > Agreements",
+        "description": "Establishment, maintenance, review and negotiation of enterprise workplace agreements set by the school.  ",
+        "disposal_action": "Retain permanently",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.4ADMINISTRATION  - Hum an Res ources Human Resources Management of school staff, including | 2.4.1ADMINISTRA TION - Human Res ources  - Agreem ents Agreements Establishment, maintenance, review and"
+    },
+    "2.4.1.2": {
+        "code": "2.4.1.2",
+        "hierarchy": "Administration > Human Resources > Agreements",
+        "description": "Establishment and maintenance of enterprise workplace agreements set by a peak body.  ",
+        "disposal_action": "Destroy 2 years after agreement superseded",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.4ADMINISTRATION  - Hum an Res ources Human Resources Management of school staff, including | 2.4.1ADMINISTRA TION - Human Res ources  - Agreem ents Agreements Establishment, maintenance, review and"
+    },
+    "2.4.2": {
+        "code": "2.4.2",
+        "hierarchy": "Administration > Human Resources > Agreements",
+        "description": "Creation, variation, abolition of positions and assigned duties.",
+        "disposal_action": "Destroy 7 years after position superseded",
+        "examples": "Organisation charts; position descriptions (or equivalent)",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.4ADMINISTRATION  - Hum an Res ources Human Resources Management of school staff, including"
+    },
+    "2.4.3.1": {
+        "code": "2.4.3.1",
+        "hierarchy": "Administration > Human Resources  > Recruitment",
+        "description": "For all positions, e.g. shortlisting, arranging interviews etc.  ",
+        "disposal_action": "Destroy 2 years after process finalised ",
+        "examples": "Copies of applications; interview schedule; shortlists of applicants ",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.4ADMINISTRATION  - Hum an Res ources Human Resources Management of school staff, including | 2.4.3ADMINISTRA TION - Human Res ources  - Recruitment Recruitment Recruitment to positions, including advertising"
+    },
+    "2.4.3.2": {
+        "code": "2.4.3.2",
+        "hierarchy": "Administration > Human Resources  > Recruitment",
+        "description": "For successful applications, use ADMINISTRATION - Human Resources - Staff History. ",
+        "disposal_action": "Destroy 1 year after process finalised ",
+        "examples": "Position description; application; evidence of registration and relevant checks; contract; employment history ",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.4ADMINISTRATION  - Hum an Res ources Human Resources Management of school staff, including | 2.4.3ADMINISTRA TION - Human Res ources  - Recruitment Recruitment Recruitment to positions, including advertising"
+    },
+    "2.4.4.1": {
+        "code": "2.4.4.1",
+        "hierarchy": "Administration > Human Resources > Staff History",
+        "description": "Summary data for individual staff members, contractors and volunteers.",
+        "disposal_action": "Retain permanently",
+        "examples": "Human resources management system; Register of register of family day care educators, educator assistants and  coordinators as per the Education and Care Services National Law",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.4ADMINISTRATION  - Hum an Res ources Human Resources Management of school staff, including | 2.4.4ADMINISTRA TION - Human Res ources  - Staff History Staff History Employment details of all staff, contractors"
+    },
+    "2.4.4.2": {
+        "code": "2.4.4.2",
+        "hierarchy": "Administration > Human Resources > Staff History",
+        "description": "Employment history records for individual staff members, contractors and volunteers where a summary record is also maintained.",
+        "disposal_action": "Destroy 75 years from date of birth",
+        "examples": "Position description; application; evidence of registration and relevant checks; contract; employment history",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.4ADMINISTRATION  - Hum an Res ources Human Resources Management of school staff, including | 2.4.4ADMINISTRA TION - Human Res ources  - Staff History Staff History Employment details of all staff, contractors"
+    },
+    "2.4.4.3": {
+        "code": "2.4.4.3",
+        "hierarchy": "Administration > Human Resources > Staff History",
+        "description": "Employment history for individual staff members, contractors and volunteers where a summary record is not maintained. ",
+        "disposal_action": "Retain permanently ",
+        "examples": "Position description; application; evidence of registration and relevant checks; contract; employment history ",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.4ADMINISTRATION  - Hum an Res ources Human Resources Management of school staff, including | 2.4.4ADMINISTRA TION - Human Res ources  - Staff History Staff History Employment details of all staff, contractors"
+    },
+    "2.4.5": {
+        "code": "2.4.5",
+        "hierarchy": "Administration > Human Resources > Security Checks",
+        "description": "Security checks (e.g. criminal history, WWC) carried out as part of pre-engagement, pre-employment and pre-appointment checks of staff, or any other person likely to be in contact with students.",
+        "disposal_action": "Destroy 7 years after the person has left the school",
+        "examples": "Working With Children Checks; criminal history checks",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.4ADMINISTRATION  - Hum an Res ources Human Resources Management of school staff, including"
+    },
+    "2.4.6": {
+        "code": "2.4.6",
+        "hierarchy": "Administration > Human Resources > Counselling ",
+        "description": "Provision of advice or guidance to staff for various reasons, including trauma counselling. ",
+        "disposal_action": "Destroy 7 years after action completed ",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.4ADMINISTRATION  - Hum an Res ources Human Resources Management of school staff, including"
+    },
+    "2.4.7": {
+        "code": "2.4.7",
+        "hierarchy": "Administration > Human Resources > Salaries",
+        "description": "Documentation of employees' salaries. Includes taxation declaration records, group certificates, payroll deduction authorities, records relating to the recovery of overpayments, and employee pay history and leave records. ",
+        "disposal_action": "Destroy 75 years from date of birth ",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.4ADMINISTRATION  - Hum an Res ources Human Resources Management of school staff, including"
+    },
+    "2.4.8": {
+        "code": "2.4.8",
+        "hierarchy": "Administration > Human Resources > Allowances",
+        "description": "Arranging and managing money paid to employees in addition to salary to cover expenses, e.g. travel allowances. ",
+        "disposal_action": "Destroy 7 years after action completed ",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.4ADMINISTRATION  - Hum an Res ources Human Resources Management of school staff, including"
+    },
+    "2.4.9.1": {
+        "code": "2.4.9.1",
+        "hierarchy": "Administration > Human Resources > Staff Development",
+        "description": "Staff attendance at external conferences, seminars or similar ",
+        "disposal_action": "Destroy when reference ceases ",
+        "examples": "Registration forms, conference materials and proceedings, participants' reports ",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.4ADMINISTRATION  - Hum an Res ources Human Resources Management of school staff, including | 2.4.9ADMINISTRA TION - Human Res ources  - Staff Devel opment Staff Development Development of staff skills and abilities"
+    },
+    "2.4.9.2": {
+        "code": "2.4.9.2",
+        "hierarchy": "Administration > Human Resources > Staff Development",
+        "description": "Assessment of staff development needs, services or programs available, development and implementation of staff development plans. ",
+        "disposal_action": "Destroy 5 years after action completed ",
+        "examples": "Training needs analysis; staff development plans ",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.4ADMINISTRATION  - Hum an Res ources Human Resources Management of school staff, including | 2.4.9ADMINISTRA TION - Human Res ources  - Staff Devel opment Staff Development Development of staff skills and abilities"
+    },
+    "2.4.9.3": {
+        "code": "2.4.9.3",
+        "hierarchy": "Administration > Human Resources > Staff Development",
+        "description": "Master record of accredited or approved courses, programs, training packages, modules and units provided for staff of the school, or of other schools. ",
+        "disposal_action": "Destroy 7 years after accreditation expires or is revoked, or course is discontinued ",
+        "examples": "Summary of curriculum content; syllabus; teaching objectives; assessment methods;  course, subject or unit descriptions and delivery methods ",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.4ADMINISTRATION  - Hum an Res ources Human Resources Management of school staff, including | 2.4.9ADMINISTRA TION - Human Res ources  - Staff Devel opment Staff Development Development of staff skills and abilities"
+    },
+    "2.5.1": {
+        "code": "2.5.1",
+        "hierarchy": "Administration > Occupational Health And Safety (Oh&S) > Incidents",
+        "description": "Investigation and reports on dangerous occurrences, incidents where personal injury of a staff member, contractor or visitor occurred on premises, or  while travelling on duty",
+        "disposal_action": "Destroy 75 years from date of birth",
+        "examples": "Accident register; reports",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.5ADMINISTRATION  - O ccupational  Health and Safety (OH&S) Occupational Health"
+    },
+    "2.5.2": {
+        "code": "2.5.2",
+        "hierarchy": "Administration > Occupational Health And Safety (Oh&S) > Compensation",
+        "description": "Management of claims for compensation submitted for personal injury of a staff member, contractor, volunteer or visitor. Includes the rehabilitation of injured workers. ",
+        "disposal_action": "Destroy 75 years from date of birth ",
+        "examples": "Incident reports; results of investigations; claims; medical details; correspondence with insurer; return to work plans ",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.5ADMINISTRATION  - O ccupational  Health and Safety (OH&S) Occupational Health"
+    },
+    "2.5.3": {
+        "code": "2.5.3",
+        "hierarchy": "Administration > Occupational Health And Safety (Oh&S) > Audit",
+        "description": "Conduct of external or internal OH&S audits and inspections ",
+        "disposal_action": "Destroy 10 years after audit/inspection completed ",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to- | 2.5ADMINISTRATION  - O ccupational  Health and Safety (OH&S) Occupational Health"
+    },
+    "2.6": {
+        "code": "2.6",
+        "hierarchy": "Administration > Rostering > Rostering",
+        "description": "Allocation of teachers or supervisors to camps, visits, sporting events, excursions etc",
+        "disposal_action": "Destroy 75 years after the event",
+        "examples": "Rosters",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to-"
+    },
+    "2.7": {
+        "code": "2.7",
+        "hierarchy": "Administration > Enquiries > Enquiries",
+        "description": "Enquiries and messages of appreciation or suggestions from external sources (e.g. parents of prospective students, the public). ",
+        "disposal_action": "Destroy 2 years after action completed",
+        "examples": "nan",
+        "parent_context": "2ADMINISTRATION ADMINISTRATION The organisation, administration and day-to-"
+    },
+    "3.1.1": {
+        "code": "3.1.1",
+        "hierarchy": "Student Services > Food Services > Compliance",
+        "description": "Meeting of regulatory requirements, including registration of food premises, assessments, inspections, food safety program, incident (e.g. contamination, poisoning) management.",
+        "disposal_action": "Destroy 5 years after action completed",
+        "examples": "Registration certificates (or equivalent); assessment reports; food safety program",
+        "parent_context": "3STUDENT SERVICES STUDENT SERVICES The development, operation and monitoring of | 3.1STUDENT SERVICES - Food S ervic es Food Services Management and operation of food services"
+    },
+    "3.1.2": {
+        "code": "3.1.2",
+        "hierarchy": "Student Services > Food Services > Operations",
+        "description": "Routine running of food services, including stock management, equipment monitoring",
+        "disposal_action": "Destroy 2 years after action completed ",
+        "examples": "Inventories; equipment monitoring results",
+        "parent_context": "3STUDENT SERVICES STUDENT SERVICES The development, operation and monitoring of | 3.1STUDENT SERVICES - Food S ervic es Food Services Management and operation of food services"
+    },
+    "3.2.1": {
+        "code": "3.2.1",
+        "hierarchy": "Student Services > Out Of Hours Care  > Attendance",
+        "description": "Registration of students attending out of hours care. ",
+        "disposal_action": "Students of Indigenous origin or in out-of-home care - Retain permanently.  Other students - Destroy 75 years from date of birth",
+        "examples": "nan",
+        "parent_context": "3STUDENT SERVICES STUDENT SERVICES The development, operation and monitoring of | 3.2STUDENT SERVICES - Out of Hours C are Out of Hours Care Provision of care facilities to students outside"
+    },
+    "3.2.2": {
+        "code": "3.2.2",
+        "hierarchy": "Student Services > Out Of Hours Care  > Activities",
+        "description": "Development and provision of programs, activities",
+        "disposal_action": "Destroy 5 years after action completed",
+        "examples": "nan",
+        "parent_context": "3STUDENT SERVICES STUDENT SERVICES The development, operation and monitoring of | 3.2STUDENT SERVICES - Out of Hours C are Out of Hours Care Provision of care facilities to students outside"
+    },
+    "3.2.3": {
+        "code": "3.2.3",
+        "hierarchy": "Student Services > Out Of Hours Care  > External Services",
+        "description": "Management and monitoring of external organisations providing of out of hours care  on behalf of the school.",
+        "disposal_action": "Destroy 7 years after action completed ",
+        "examples": "Tenders, appointment, contracts, service level agreements",
+        "parent_context": "3STUDENT SERVICES STUDENT SERVICES The development, operation and monitoring of | 3.2STUDENT SERVICES - Out of Hours C are Out of Hours Care Provision of care facilities to students outside"
+    },
+    "3.3.1": {
+        "code": "3.3.1",
+        "hierarchy": "Student Services > Health And Welfare > Program Development And Monitoring",
+        "description": "Research, development and articulation of health and welfare programs for all students, or specific categories of student.",
+        "disposal_action": "Retain permanently",
+        "examples": "Final versions of program, statistics and supporting data, monitoring and evaluation records, implementation plans",
+        "parent_context": "3STUDENT SERVICES STUDENT SERVICES The development, operation and monitoring of | 3.3STUDENT SERVICES - Health and W elfare Health and Welfare Programs, plans, support services and"
+    },
+    "3.3.2": {
+        "code": "3.3.2",
+        "hierarchy": "Student Services > Health And Welfare > Program Operation",
+        "description": "Routine delivery of a health and welfare program or project ",
+        "disposal_action": "Destroy 7 years after program ceases or is superseded",
+        "examples": "Delivery plans, progress reports, meeting records",
+        "parent_context": "3STUDENT SERVICES STUDENT SERVICES The development, operation and monitoring of | 3.3STUDENT SERVICES - Health and W elfare Health and Welfare Programs, plans, support services and"
+    },
+    "3.3.3": {
+        "code": "3.3.3",
+        "hierarchy": "Student Services > Health And Welfare > Summary Health Data",
+        "description": "Summary data relating to programs administered, e.g. vaccination.",
+        "disposal_action": "Destroy 7 years after action completed ",
+        "examples": "Vaccination register",
+        "parent_context": "3STUDENT SERVICES STUDENT SERVICES The development, operation and monitoring of | 3.3STUDENT SERVICES - Health and W elfare Health and Welfare Programs, plans, support services and"
+    },
+    "3.4.1": {
+        "code": "3.4.1",
+        "hierarchy": "Student Services > Accomodation > Successful",
+        "description": "Successful applications for accommodation services",
+        "disposal_action": "Destroy 7 years after agreement ceases",
+        "examples": "Applications, code of conduct",
+        "parent_context": "3STUDENT SERVICES STUDENT SERVICES The development, operation and monitoring of | 3.4STUDENT SERVICES - Accommodati on Accommodation Management of arrangements for providing"
+    },
+    "3.4.2": {
+        "code": "3.4.2",
+        "hierarchy": "Student Services > Accomodation > Unsuccessful",
+        "description": "Withdrawn or unsuccessful applications for accommodation services.",
+        "disposal_action": "Destroy  2 years after action completed ",
+        "examples": "Applications",
+        "parent_context": "3STUDENT SERVICES STUDENT SERVICES The development, operation and monitoring of | 3.4STUDENT SERVICES - Accommodati on Accommodation Management of arrangements for providing"
+    },
+    "3.5": {
+        "code": "3.5",
+        "hierarchy": "Student Services > Careers > -",
+        "description": "Provision of career advice, programs, information, services and events.",
+        "disposal_action": "Destroy 5 years after action completed",
+        "examples": "nan",
+        "parent_context": "3STUDENT SERVICES STUDENT SERVICES The development, operation and monitoring of"
+    },
+    "3.6": {
+        "code": "3.6",
+        "hierarchy": "Student Services > Library > -",
+        "description": "Provision of library services, including collection acquisition, management (including loans), de-accessioning and student and staff support.",
+        "disposal_action": "Destroy when superseded",
+        "examples": "Collection management records, guides/ instructions, lists of acquisitions and disposals, loan records",
+        "parent_context": "3STUDENT SERVICES STUDENT SERVICES The development, operation and monitoring of"
+    },
+    "3.7": {
+        "code": "3.7",
+        "hierarchy": "Student Services > School Animal & Crop Management > -",
+        "description": "Activities relating to the breeding, care, use, and disposal of animals and animal body parts or specimens, and the planting, use, disposal of plant material or specimens for educational purposes.",
+        "disposal_action": "Destroy 7 years after action completed",
+        "examples": "Records relating to animal or property acquisition and disposal, permits, chemical management, disease and pest control, storage facilities, quarantine, scientific use, plant disposal, soil tests",
+        "parent_context": "3STUDENT SERVICES STUDENT SERVICES The development, operation and monitoring of"
+    },
+    "4.1.1": {
+        "code": "4.1.1",
+        "hierarchy": "Student Management > Student Master Record > Indigenous Students",
+        "description": "Summary record for students of Aboriginal or Torres Strait Islander origin",
+        "disposal_action": "Retain permanently",
+        "examples": "nan",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.1STUDENT MANAGEMEN T -  Student Master Record Student Master"
+    },
+    "4.1.2": {
+        "code": "4.1.2",
+        "hierarchy": "Student Management > Student Master Record > Students in Out-of-Home Care",
+        "description": "Summary for students who are living, or have lived in orphanages, children's homes or with alternative care-givers.",
+        "disposal_action": "Retain permanently",
+        "examples": "nan",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.1STUDENT MANAGEMEN T -  Student Master Record Student Master"
+    },
+    "4.1.3": {
+        "code": "4.1.3",
+        "hierarchy": "Student Management > Student Master Record > Other Students",
+        "description": "Summary for students who are not Indigenous, or are living or have lived in out-of-home-care.",
+        "disposal_action": "Destroy 75 years from date of birth",
+        "examples": "nan",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.1STUDENT MANAGEMEN T -  Student Master Record Student Master"
+    },
+    "4.1.4": {
+        "code": "4.1.4",
+        "hierarchy": "Student Management > Student Master Record > Supporting Records For Student Master Record",
+        "description": "Supporting records for individual students covering a range of student management activities - where a summary exists",
+        "disposal_action": "Destroy 25 years from date of birth",
+        "examples": "nan",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.1STUDENT MANAGEMEN T -  Student Master Record Student Master"
+    },
+    "4.2.1": {
+        "code": "4.2.1",
+        "hierarchy": "Student Management > Admissions > Summary",
+        "description": "Summary of admissions/enrolments, and summary of departures pre Year 12",
+        "disposal_action": "Retain permanently",
+        "examples": "Admissions register",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.2STUDENT MANAGEMEN T -  Admissions Admissions Activities connected with student admission,"
+    },
+    "4.2.2": {
+        "code": "4.2.2",
+        "hierarchy": "Student Management > Admissions > Individual - Successful",
+        "description": "Individual student enrolment records - successful ",
+        "disposal_action": "Destroy 7years after student leaves the school, and if a summary record exists",
+        "examples": "Application and supporting documentation; decision; appeals",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.2STUDENT MANAGEMEN T -  Admissions Admissions Activities connected with student admission,"
+    },
+    "4.2.3": {
+        "code": "4.2.3",
+        "hierarchy": "Student Management > Admissions > Individual - Departures",
+        "description": "Individual student departure records, pre Year 12 ",
+        "disposal_action": "Destroy 25 years from date of birth, and if a summary record exists",
+        "examples": "nan",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.2STUDENT MANAGEMEN T -  Admissions Admissions Activities connected with student admission,"
+    },
+    "4.2.4": {
+        "code": "4.2.4",
+        "hierarchy": "Student Management > Admissions > Individual - Unsuccessful",
+        "description": "Individual student enrolment records - unsuccessful - Applications for enrolment that are unsuccessful or the applicants did not commence at the school.",
+        "disposal_action": "Destroy 2 years after action completed",
+        "examples": "Application and supporting documentation; decision; appeals; notifications and consents from parents",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.2STUDENT MANAGEMEN T -  Admissions Admissions Activities connected with student admission,"
+    },
+    "4.3": {
+        "code": "4.3",
+        "hierarchy": "Student Management > Attendance > -",
+        "description": "Management of student attendance and absences. Includes movement of students in and out of their accommodation",
+        "disposal_action": "Students of Indigenous origin or in out-of-home care - Retain permanently.  Other students - Destroy 75 years from date of birth",
+        "examples": "Attendance",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT"
+    },
+    "4.4.1": {
+        "code": "4.4.1",
+        "hierarchy": "Student Management > Financial Assistance > Establishment",
+        "description": "Establishment of financial assistance programs, e.g. a scholarship. ",
+        "disposal_action": "Retain permanently",
+        "examples": "nan",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.4STUDENT MANAGEMEN T -  Financi al As sistance Financial Assistance Provision of financial assistance to individual"
+    },
+    "4.4.2": {
+        "code": "4.4.2",
+        "hierarchy": "Student Management > Financial Assistance > Program Management",
+        "description": "Management and administration of financial assistance programs ",
+        "disposal_action": "Destroy 7 years after action completed and audit",
+        "examples": "nan",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.4STUDENT MANAGEMEN T -  Financi al As sistance Financial Assistance Provision of financial assistance to individual"
+    },
+    "4.4.3": {
+        "code": "4.4.3",
+        "hierarchy": "Student Management > Financial Assistance > Individual Awards",
+        "description": "Award of financial assistance to specific students, e.g  a scholarship, an allowance",
+        "disposal_action": "Destroy 7 years after assistance granted. ",
+        "examples": "nan",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.4STUDENT MANAGEMEN T -  Financi al As sistance Financial Assistance Provision of financial assistance to individual"
+    },
+    "4.5.1": {
+        "code": "4.5.1",
+        "hierarchy": "Student Management > Awards > Establishment",
+        "description": "Establishment of awards. Includes communication with donors/sponsors, summary records of awards granted or posts held, successful applications, nominations, records of the decision making process.  ",
+        "disposal_action": "Retain permanently",
+        "examples": "nan",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.5STUDENT MANAGEMEN T -  Awards Awards Academic and non academic awards won by"
+    },
+    "4.5.2": {
+        "code": "4.5.2",
+        "hierarchy": "Student Management > Awards > Summaries",
+        "description": "Awards received by all students",
+        "disposal_action": "Retain permanently",
+        "examples": "Annual lists; honour boards; registers of school captains and prefects",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.5STUDENT MANAGEMEN T -  Awards Awards Academic and non academic awards won by"
+    },
+    "4.5.3": {
+        "code": "4.5.3",
+        "hierarchy": "Student Management > Awards > Individual Awards",
+        "description": "Individual student awards, posts etc.  If a summary record is maintained",
+        "disposal_action": "Students of Indigenous origin or in out-of-home care - Retain permanently.  Other students - Destroy 75 years from date of birth",
+        "examples": "nan",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.5STUDENT MANAGEMEN T -  Awards Awards Academic and non academic awards won by"
+    },
+    "4.6.1.1": {
+        "code": "4.6.1.1",
+        "hierarchy": "Student Management > Health and Welfare > Accidents and Incidents",
+        "description": "Accidents, injuries, incidents, illness and notifiable disease",
+        "disposal_action": "Destroy 75 years after last entry",
+        "examples": "Accident register; first aid register; sick bay register; infectious disease register",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.6STUDENT MANAGEMEN T -  Health and Welfare Health and Welfare The management of student health, safety, | 4.6.1STUDEN T MANAGEMENT - H ealth and W elfare - Accidents and"
+    },
+    "4.6.1.2": {
+        "code": "4.6.1.2",
+        "hierarchy": "Student Management > Health and Welfare > Accidents and Incidents",
+        "description": "Reports and investigations of accidents, injuries, incidents and illness. Includes suspected event sustained at home in which the school becomes involved.",
+        "disposal_action": "Students of Indigenous origin or in out-of-home care - Retain permanently.  Other students - Destroy 75 years from date of birth",
+        "examples": "Investigations and reports",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.6STUDENT MANAGEMEN T -  Health and Welfare Health and Welfare The management of student health, safety, | 4.6.1STUDEN T MANAGEMENT - H ealth and W elfare - Accidents and"
+    },
+    "4.6.2": {
+        "code": "4.6.2",
+        "hierarchy": "Student Management > Health and Welfare > Student Medical and Welfare History",
+        "description": "Records of all physical, psychological treatment, pastoral care and support given to a student.  Includes counselling, advice and therapy",
+        "disposal_action": "Students of Indigenous origin or in out-of-home care - Retain permanently.  Other students - Destroy 75 years from date of birth",
+        "examples": "Case notes; reports; assessments and observations; meeting notes; treatment records",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.6STUDENT MANAGEMEN T -  Health and Welfare Health and Welfare The management of student health, safety,"
+    },
+    "4.7.1": {
+        "code": "4.7.1",
+        "hierarchy": "Student Management > Child Protection > Cases",
+        "description": "Notifications, allegations, investigations and reports, and any related records where a person reasonably suspects harm or a risk of harm to a student, including action taken.  Includes management of students subject to a relevant court order (e.g. child protection order)",
+        "disposal_action": "Retain permanently",
+        "examples": "Reports - formal and informal; records of investigations; recommendations; documentation of action taken;attendance; leave and travel records; personnel files; counselling or discipline records; referrals to and reviews of actions; cases or decisions by external authorities; records of claims; assessments; reviews and appeals for individuals; interventions; support or compensation and attempted or successful redress; counselling, mediation and medical records",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.7STUDENT MANAGEMEN T -  Child Protection Child Protection Provision of a safe environment for students,"
+    },
+    "4.7.2": {
+        "code": "4.7.2",
+        "hierarchy": "Student Management > Child Protection > Host Families",
+        "description": "Selection and screening of host families for exchange students and international  students",
+        "disposal_action": "Students of Indigenous origin or in out-of-home care - Retain permanently.  Other students - Destroy 75 years from date of birth",
+        "examples": "nan",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.7STUDENT MANAGEMEN T -  Child Protection Child Protection Provision of a safe environment for students,"
+    },
+    "4.8.1": {
+        "code": "4.8.1",
+        "hierarchy": "Student Management > Behaviour > Significant Events",
+        "description": "Significant events, cases or activities, which may result in student suspensions, expulsions or prosecutions through Court",
+        "disposal_action": "Students of Indigenous origin or in out-of-home care - Retain permanently.  Other students - Destroy 75 years from date of birth",
+        "examples": "nan",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.8STUDENT MANAGEMEN T -  Behaviour Behaviour Actions relating to the conduct and behaviour"
+    },
+    "4.8.2": {
+        "code": "4.8.2",
+        "hierarchy": "Student Management > Behaviour > Routine Events",
+        "description": "Routine events, cases or activities",
+        "disposal_action": "Destroy 6 years after student leaves the school",
+        "examples": "nan",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.8STUDENT MANAGEMEN T -  Behaviour Behaviour Actions relating to the conduct and behaviour"
+    },
+    "4.9": {
+        "code": "4.9",
+        "hierarchy": "Student Management > Home Schooling > -",
+        "description": "Management of students seeking exemption to be schooled from home",
+        "disposal_action": "Students of Indigenous origin or in out-of-home care - Retain permanently.  Other students - Destroy 75 years from date of birth",
+        "examples": "Copies of parent application to the relevant authority; student details; communications regarding approval/ non approval",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT"
+    },
+    "4.10": {
+        "code": "4.10",
+        "hierarchy": "Student Management > Work Experience > -",
+        "description": "Arrangements for, and monitoring of individual student work experience or practical placements.  Includes screening of host employer and supervisors",
+        "disposal_action": "Students of Indigenous origin or in out-of-home care - Retain permanently.  Other students - Destroy 75 years from date of birth",
+        "examples": "Agreements with placement hosts; course/work structure; parent/guardian permissions; applications; evaluations; host reports",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT"
+    },
+    "4.11.1": {
+        "code": "4.11.1",
+        "hierarchy": "Student Management > Co-Curricular Activities > Program Establishment",
+        "description": "Establishment and major review of specific programs",
+        "disposal_action": "Destroy 2 years after program superseded or discontinued",
+        "examples": "nan",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.11STUDENT MANAGEMEN T -  Co-curricular Activities Co-curricular"
+    },
+    "4.11.2": {
+        "code": "4.11.2",
+        "hierarchy": "Student Management > Co-Curricular Activities > House",
+        "description": "Identification, membership, reports of houses",
+        "disposal_action": "Destroy 5 years after action completed",
+        "examples": "nan",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.11STUDENT MANAGEMEN T -  Co-curricular Activities Co-curricular"
+    },
+    "4.11.3.1": {
+        "code": "4.11.3.1",
+        "hierarchy": "Student Management > Co-Curricular Activities > Excursions",
+        "description": "Logistical and administrative arrangements for an excursion, visit etc. ",
+        "disposal_action": "Destroy 5 years after action completed",
+        "examples": "Plans; schedules; transport bookings; advices to parents/ guardians",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.11STUDENT MANAGEMEN T -  Co-curricular Activities Co-curricular | 4.11.3STUDEN T MANAGEMENT - Co-curricular"
+    },
+    "4.11.3.2": {
+        "code": "4.11.3.2",
+        "hierarchy": "Student Management > Co-Curricular Activities > Excursions",
+        "description": "Records of participation of students in camps, visits etc",
+        "disposal_action": "Students of Indigenous origin or in out-of-home care - Retain permanently.  Other students - Destroy 75 years from date of birth",
+        "examples": "Parent/guardian permissions; applications (e.g. for overseas trips); photographs",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.11STUDENT MANAGEMEN T -  Co-curricular Activities Co-curricular | 4.11.3STUDEN T MANAGEMENT - Co-curricular"
+    },
+    "4.11.4.1": {
+        "code": "4.11.4.1",
+        "hierarchy": "Student Management > Co-Curricular Activities > Sports",
+        "description": "Logistical and administrative arrangements",
+        "disposal_action": "Destroy 5 years after action completed",
+        "examples": "Team lists; rosters; results",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.11STUDENT MANAGEMEN T -  Co-curricular Activities Co-curricular | 4.11.4STUDEN T MANAGEMENT - Co-curricular"
+    },
+    "4.11.4.2": {
+        "code": "4.11.4.2",
+        "hierarchy": "Student Management > Co-Curricular Activities > Sports",
+        "description": "Records of participation of students in sports and sporting events",
+        "disposal_action": "Students of Indigenous origin or in out-of-home care - Retain permanently.  Other students - Destroy 75 years from date of birth",
+        "examples": "Photographs; parent/ guardian permissions and approvals",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.11STUDENT MANAGEMEN T -  Co-curricular Activities Co-curricular | 4.11.4STUDEN T MANAGEMENT - Co-curricular"
+    },
+    "4.11.5.1": {
+        "code": "4.11.5.1",
+        "hierarchy": "Student Management > Co-Curricular Activities > Arts",
+        "description": "Logistical and administrative arrangements.  ",
+        "disposal_action": "Destroy 5 years after action completed",
+        "examples": "Venue and support arrangements; schedules; tickets; programs; photographs",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.11STUDENT MANAGEMEN T -  Co-curricular Activities Co-curricular | 4.11.5STUDEN T MANAGEMENT - Co-curricular"
+    },
+    "4.11.5.2": {
+        "code": "4.11.5.2",
+        "hierarchy": "Student Management > Co-Curricular Activities > Arts",
+        "description": "Records of participation of students in artistic events",
+        "disposal_action": "Students of Indigenous origin or in out-of-home care - Retain permanently.  Other students - Destroy 75 years from date of birth",
+        "examples": "Photographs",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.11STUDENT MANAGEMEN T -  Co-curricular Activities Co-curricular | 4.11.5STUDEN T MANAGEMENT - Co-curricular"
+    },
+    "4.11.6.1": {
+        "code": "4.11.6.1",
+        "hierarchy": "Student Management > Co-Curricular Activities > Service Learning",
+        "description": "Logistical and administrative arrangements.  ",
+        "disposal_action": "Destroy 5 years after action completed",
+        "examples": "Activity plans; financial plans",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.11STUDENT MANAGEMEN T -  Co-curricular Activities Co-curricular | 4.11.6STUDEN T MANAGEMENT - Co-curricular"
+    },
+    "4.11.6.2": {
+        "code": "4.11.6.2",
+        "hierarchy": "Student Management > Co-Curricular Activities > Service Learning",
+        "description": "Records of participation of students in community events",
+        "disposal_action": "Students of Indigenous origin or in out-of-home care - Retain permanently.  Other students - Destroy 75 years from date of birth",
+        "examples": "Parent/guardian permissions; photographs",
+        "parent_context": "4STUDENT MANAGEMENT STUDENT | 4.11STUDENT MANAGEMEN T -  Co-curricular Activities Co-curricular | 4.11.6STUDEN T MANAGEMENT - Co-curricular"
+    },
+    "5.1.1": {
+        "code": "5.1.1",
+        "hierarchy": "Teaching and Learning > Curriculum > Major Programs",
+        "description": "Research and development of programs that have a substantial impact on the curriculum and its delivery",
+        "disposal_action": "Retain permanently",
+        "examples": "Plans; programs; reports; curriculum",
+        "parent_context": "5TEACHING AND LEARNING TEACHING AND | 5.1TEACHING AND  LEARNING - Curriculum Curriculum The planning, research, development,"
+    },
+    "5.1.2": {
+        "code": "5.1.2",
+        "hierarchy": "Teaching And Learning > Curriculum > Development And Delivery",
+        "description": "Routine development and delivery of curriculum and teaching materials.",
+        "disposal_action": "Other students: Destroy 75 years from date of birth ",
+        "examples": "Curriculum content, revisions to units, syllabus, course notes, working papers, teaching methods, subject lists, handbooks, class programs, lesson guides",
+        "parent_context": "5TEACHING AND LEARNING TEACHING AND | 5.1TEACHING AND  LEARNING - Curriculum Curriculum The planning, research, development,"
+    },
+    "5.1.3": {
+        "code": "5.1.3",
+        "hierarchy": "Teaching And Learning > Curriculum > Review",
+        "description": "Regular or specific review or evaluation of curriculum and its delivery ",
+        "disposal_action": "Destroy 5  years after action completed",
+        "examples": "Teacher observations",
+        "parent_context": "5TEACHING AND LEARNING TEACHING AND | 5.1TEACHING AND  LEARNING - Curriculum Curriculum The planning, research, development,"
+    },
+    "5.1.4": {
+        "code": "5.1.4",
+        "hierarchy": "Teaching And Learning > Curriculum > International Baccalaureate (Ib)",
+        "description": "Management and delivery of the IB program and curriculum.",
+        "disposal_action": "Destroy when superseded",
+        "examples": "Curriculum, program structure, teaching methods, subject lists, handbooks, class program, lesson guides",
+        "parent_context": "5TEACHING AND LEARNING TEACHING AND | 5.1TEACHING AND  LEARNING - Curriculum Curriculum The planning, research, development,"
+    },
+    "5.2": {
+        "code": "5.2",
+        "hierarchy": "Teaching And Learning > Distance Education > Distance Education",
+        "description": "Program-level establishment and maintenance, including facilities, parent support.",
+        "disposal_action": "Destroy 2 years after the program is superseded",
+        "examples": "Program structure, materials for parents, procedures",
+        "parent_context": "5TEACHING AND LEARNING TEACHING AND"
+    },
+    "5.3.1": {
+        "code": "5.3.1",
+        "hierarchy": "Teaching And Learning > Special Education > Programs",
+        "description": "Program-level design and management",
+        "disposal_action": "Retain permanently",
+        "examples": "Program design, plans, reports, lists of registered students, engagement of support services",
+        "parent_context": "5TEACHING AND LEARNING TEACHING AND | 5.3TEACHING AND  LEARNING - Spec ial  Education Special Education Education programs specifically directed and"
+    },
+    "5.3.2": {
+        "code": "5.3.2",
+        "hierarchy": "Teaching And Learning > Special Education > Individual Students",
+        "description": "Management of individual students",
+        "disposal_action": "Students of Indigenous origin or in out-of-home care - Retain permanently.  Other students - Destroy 75 years from date of birth",
+        "examples": "Student work plans, referrals, teacher observations",
+        "parent_context": "5TEACHING AND LEARNING TEACHING AND | 5.3TEACHING AND  LEARNING - Spec ial  Education Special Education Education programs specifically directed and"
+    },
+    "5.4.1": {
+        "code": "5.4.1",
+        "hierarchy": "Teaching And Learning > High Potential Programs > Programs",
+        "description": "Program-level design and management",
+        "disposal_action": "Retain permanently",
+        "examples": "Program design, plans, reports, lists of registered students, engagement of support services",
+        "parent_context": "5TEACHING AND LEARNING TEACHING AND | 5.4TEACHING AND  LEARNING - H igh Potential Programs High Potential"
+    },
+    "5.4.2": {
+        "code": "5.4.2",
+        "hierarchy": "Teaching And Learning > High Potential Programs > Individual Students",
+        "description": "Management of individual students.",
+        "disposal_action": "Students of Indigenous origin or in out-of-home care - Retain permanently.  Other students - Destroy 75 years from date of birth",
+        "examples": "Student work plans, referrals, teacher observations",
+        "parent_context": "5TEACHING AND LEARNING TEACHING AND | 5.4TEACHING AND  LEARNING - H igh Potential Programs High Potential"
+    },
+    "5.5.1": {
+        "code": "5.5.1",
+        "hierarchy": "Teaching And Learning > Learning Analytics > Aggregated Data And Analysis",
+        "description": "Data collected and analysed that is used for routine reporting, predictive modelling, identifying gaps and opportunities for improvement.",
+        "disposal_action": "Destroy 3 years after obsolete or superseded",
+        "examples": "nan",
+        "parent_context": "5TEACHING AND LEARNING TEACHING AND | 5.5TEACHING AND  LEARNING - Learning Analytics Learning Analytics Measurement, collection, analysis and"
+    },
+    "5.5.2": {
+        "code": "5.5.2",
+        "hierarchy": "Teaching And Learning > Learning Analytics > Individual Student ",
+        "description": "Data and analysis for individual students.",
+        "disposal_action": "Students of Indigenous origin or in out-of-home care - Retain permanently.  Other students - Destroy 75 years from date of birth",
+        "examples": "nan",
+        "parent_context": "5TEACHING AND LEARNING TEACHING AND | 5.5TEACHING AND  LEARNING - Learning Analytics Learning Analytics Measurement, collection, analysis and"
+    },
+    "5.6": {
+        "code": "5.6",
+        "hierarchy": "Teaching And Learning > Timetables > -",
+        "description": "Establishment of class timetables.",
+        "disposal_action": "Destroy when superseded",
+        "examples": "nan",
+        "parent_context": "5TEACHING AND LEARNING TEACHING AND"
+    },
+    "5.7.1": {
+        "code": "5.7.1",
+        "hierarchy": "Teaching And Learning > Examinations & Assessments > Summary Results - Qualifications",
+        "description": "Summary of results for years 11 and 12, IB students, apprentices and trainees for each year.",
+        "disposal_action": "Retain permanently",
+        "examples": "nan",
+        "parent_context": "5TEACHING AND LEARNING TEACHING AND | 5.7TEACHING AND  LEARNING - Examinati ons & As sessm ents Examinations &"
+    },
+    "5.7.2": {
+        "code": "5.7.2",
+        "hierarchy": "Teaching And Learning > Examinations & Assessments > Summary Results - Other Years ",
+        "description": "Summary of results or examinations and assessments for years other than 11 and 12.",
+        "disposal_action": "Destroy 10 years after action completed",
+        "examples": "nan",
+        "parent_context": "5TEACHING AND LEARNING TEACHING AND | 5.7TEACHING AND  LEARNING - Examinati ons & As sessm ents Examinations &"
+    },
+    "5.7.3": {
+        "code": "5.7.3",
+        "hierarchy": "Teaching And Learning > Examinations & Assessments > Individual Students - Results",
+        "description": "Record of individual student assessment and achievement, including student reports. Includes completion or partial completion of traineeships and apprenticeships.",
+        "disposal_action": "Students of Indigenous origin or in out-of-home care - Retain permanently.  Other students - Destroy 75 years from date of birth",
+        "examples": "Reports, results, statements of attainment, training contracts/agreements",
+        "parent_context": "5TEACHING AND LEARNING TEACHING AND | 5.7TEACHING AND  LEARNING - Examinati ons & As sessm ents Examinations &"
+    },
+    "5.7.4": {
+        "code": "5.7.4",
+        "hierarchy": "Teaching And Learning > Examinations & Assessments > Certificates",
+        "description": "Copies of certificates, academic transcripts given to students, parents or guardians.",
+        "disposal_action": "Destroy 2 years after action completed",
+        "examples": "Copies of certificates, academic transcripts or similar, requests for transcripts",
+        "parent_context": "5TEACHING AND LEARNING TEACHING AND | 5.7TEACHING AND  LEARNING - Examinati ons & As sessm ents Examinations &"
+    },
+    "5.7.5": {
+        "code": "5.7.5",
+        "hierarchy": "Teaching And Learning > Examinations & Assessments > Arrangements",
+        "description": "Administrative arrangements for setting, holding and supervision of examinations or other assessments, including examination/ assessment materials.",
+        "disposal_action": "Destroy 2 years after action completed",
+        "examples": "Timetables, exam sheets, test papers,  assignments, answer books, marking guides, supervision rosters, special consideration requests",
+        "parent_context": "5TEACHING AND LEARNING TEACHING AND | 5.7TEACHING AND  LEARNING - Examinati ons & As sessm ents Examinations &"
+    },
+    "6.1.1": {
+        "code": "6.1.1",
+        "hierarchy": "Communications & Community Relations > Circulars And Instructions > Routine Internal",
+        "description": "Routine internal staff notices and communications. For notices about significant events, use the relevant topic. ",
+        "disposal_action": "Destroy 2 years after action completed or instruction superseded ",
+        "examples": "nan",
+        "parent_context": "6COMMUNICATIO NS & C OMMUNITY RELATIO NS COMMUNICATIONS | 6.1COMMUNICATIONS &  COMMUNITY RELA TIONS -  Circulars and Instructions Circulars and"
+    },
+    "6.1.2": {
+        "code": "6.1.2",
+        "hierarchy": "Communications & Community Relations > Circulars And Instructions > External ",
+        "description": "Circulars from the school including to parents/ guardians. ",
+        "disposal_action": "Retain permanently ",
+        "examples": "nan",
+        "parent_context": "6COMMUNICATIO NS & C OMMUNITY RELATIO NS COMMUNICATIONS | 6.1COMMUNICATIONS &  COMMUNITY RELA TIONS -  Circulars and Instructions Circulars and"
+    },
+    "6.2.1": {
+        "code": "6.2.1",
+        "hierarchy": "Communications & Community Relations > Publications > Production",
+        "description": "Development, design and production of school publications. ",
+        "disposal_action": "Destroy 3 years after action completed ",
+        "examples": "Designs, content, drafts, working papers, publication arrangements ",
+        "parent_context": "6COMMUNICATIO NS & C OMMUNITY RELATIO NS COMMUNICATIONS | 6.2COMMUNICATIONS &  COMMUNITY RELA TIONS -  Publicati ons Publications Production of various types of publications that"
+    },
+    "6.2.2": {
+        "code": "6.2.2",
+        "hierarchy": "Communications & Community Relations > Publications > Publication",
+        "description": "Final copy of a school publication. ",
+        "disposal_action": "Retain permanently ",
+        "examples": "School magazine, year books, school histories, photographs, printed publications, web publications, audiotapes, films, videos, fliers, posters. ",
+        "parent_context": "6COMMUNICATIO NS & C OMMUNITY RELATIO NS COMMUNICATIONS | 6.2COMMUNICATIONS &  COMMUNITY RELA TIONS -  Publicati ons Publications Production of various types of publications that"
+    },
+    "6.3.1": {
+        "code": "6.3.1",
+        "hierarchy": "Communications & Community Relations > Celebrations > Arrangements",
+        "description": "Planning, arranging and facilitating events. ",
+        "disposal_action": "Destroy 3 years after action completed ",
+        "examples": "Invitations, notifications of events, acceptances ",
+        "parent_context": "6COMMUNICATIO NS & C OMMUNITY RELATIO NS COMMUNICATIONS | 6.3COMMUNICATIONS &  COMMUNITY RELA TIONS -  Cel ebrations Celebrations Arrangement and staging of school"
+    },
+    "6.3.2": {
+        "code": "6.3.2",
+        "hierarchy": "Communications & Community Relations > Celebrations > Record Of Event",
+        "description": "Records of the event, produced for the event or as an outcome of the event. ",
+        "disposal_action": "Retain permanently ",
+        "examples": "Photographs, recordings, speeches, programs, posters, advertising ",
+        "parent_context": "6COMMUNICATIO NS & C OMMUNITY RELATIO NS COMMUNICATIONS | 6.3COMMUNICATIONS &  COMMUNITY RELA TIONS -  Cel ebrations Celebrations Arrangement and staging of school"
+    },
+    "6.4.1": {
+        "code": "6.4.1",
+        "hierarchy": "Communications & Community Relations > Visits To The School > Vip",
+        "description": "Visits by eminent persons, e.g. royalty, minister of state, famous sports, entertainment or cultural people. ",
+        "disposal_action": "Retain permanently ",
+        "examples": "Visitor books, photographs, speeches ",
+        "parent_context": "6COMMUNICATIO NS & C OMMUNITY RELATIO NS COMMUNICATIONS | 6.4COMMUNICATIONS &  COMMUNITY RELA TIONS -  Visits to the School Visits to the School Arrangements for visit to the school by"
+    },
+    "6.4.2": {
+        "code": "6.4.2",
+        "hierarchy": "Communications & Community Relations > Visits To The School > Arrangements",
+        "description": "Administrative arrangements for visits by VIPs and all other persons or organisations. ",
+        "disposal_action": "Destroy 5 years after action completed ",
+        "examples": "Visitor books, photographs, records of administrative and logistical arrangements ",
+        "parent_context": "6COMMUNICATIO NS & C OMMUNITY RELATIO NS COMMUNICATIONS | 6.4COMMUNICATIONS &  COMMUNITY RELA TIONS -  Visits to the School Visits to the School Arrangements for visit to the school by"
+    },
+    "6.4.3": {
+        "code": "6.4.3",
+        "hierarchy": "Communications & Community Relations > Visits To The School > Community Relations",
+        "description": "Communication between the school and the wider community, including the media.  Includes marketing campaigns, open days, handling of public reaction to the school's policy or actions, addresses at public events, social media activities. ",
+        "disposal_action": "Destroy 7 years after action completed ",
+        "examples": "Complaints, congratulations, speeches, programs, display materials, advertising. ",
+        "parent_context": "6COMMUNICATIO NS & C OMMUNITY RELATIO NS COMMUNICATIONS | 6.4COMMUNICATIONS &  COMMUNITY RELA TIONS -  Visits to the School Visits to the School Arrangements for visit to the school by"
+    },
+    "7.1": {
+        "code": "7.1",
+        "hierarchy": "School Related Groups > Governance > -",
+        "description": "The Group's establishment and governance",
+        "disposal_action": "Retain permanently",
+        "examples": "Constitution, rules/polices/procedures, minutes of meetings, reports to the school Council (or equivalent).",
+        "parent_context": "7SCHOOL-RELATED GR OUPS SCHOOL-RELATED"
+    },
+    "7.2": {
+        "code": "7.2",
+        "hierarchy": "School Related Groups > Membership > -",
+        "description": "Registers of Group members",
+        "disposal_action": "Destroy when Group ceases",
+        "examples": "Membership lists",
+        "parent_context": "7SCHOOL-RELATED GR OUPS SCHOOL-RELATED"
+    },
+    "7.3": {
+        "code": "7.3",
+        "hierarchy": "School Related Groups > Activities > -",
+        "description": "Management of the Group's activities, e.g. planning and organising fund raising, reunions, commemorations.",
+        "disposal_action": "Destroy 5 years after action completed",
+        "examples": "nan",
+        "parent_context": "7SCHOOL-RELATED GR OUPS SCHOOL-RELATED"
+    },
+    "8.1.1": {
+        "code": "8.1.1",
+        "hierarchy": "Spiritual Programs > Religious Ceremonies And Services > Religious Ceremonies And Services",
+        "description": "Conduct of baptism, confirmation, marriage,\nfuneral and memorial ceremonies, and\nreligious services for the school and/or the\nwider community.",
+        "disposal_action": "Retain permanently",
+        "examples": "Registers, indexes, lists of participants",
+        "parent_context": "8SPIRITUAL PROGRAMS SPIRITUAL | 8.1SPIRITUAL PROGRAMS  - R eligious C erem onies and Servi ces Religious"
+    },
+    "8.1.2": {
+        "code": "8.1.2",
+        "hierarchy": "Spiritual Programs > Religious Ceremonies And Services > Arrangements",
+        "description": "Administrative arrangements for ceremonies and services.",
+        "disposal_action": "Destroy 5 years after action completed",
+        "examples": "nan",
+        "parent_context": "8SPIRITUAL PROGRAMS SPIRITUAL | 8.1SPIRITUAL PROGRAMS  - R eligious C erem onies and Servi ces Religious"
+    },
+    "9": {
+        "code": "9",
+        "hierarchy": "Objects > Objects > -",
+        "description": "Material of high significance to the history of the school, e.g. formal group photographs, plaques, flags, trophies and newspaper cuttings, etc.",
+        "disposal_action": "Retain permanently",
+        "examples": "Formal group photographs; other photographs; newspaper cuttings",
+        "parent_context": ""
+    },
+    "10": {
+        "code": "10",
+        "hierarchy": "Ephemera > Ephemera > -",
+        "description": "Information that is of ephemeral or short-term use, e.g. duplicate copies of material held for reference; information of short term facilitative value; working papers and drafts.",
+        "disposal_action": "Destroy when reference ceases",
+        "examples": "Copies that are not annotated; draft documents not needed once a final version has been produced; background notes, working papers and reference materials of no further use; copies of office notices",
+        "parent_context": ""
+    }
+}

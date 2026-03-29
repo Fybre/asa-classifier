@@ -1,0 +1,96 @@
+version: "3.8"
+
+# Usage:
+#   Local Ollama (default):
+#     docker compose --profile ollama up
+#
+#   External LLM provider (OpenRouter, LM Studio, etc.):
+#     OPENAI_API_BASE=https://openrouter.ai/api/v1 \
+#     OPENAI_API_KEY=sk-... \
+#     LLM_MODEL=mistralai/mistral-7b-instruct \
+#     docker compose up
+
+services:
+
+  # The main ASA Classifier Application (RAG + LLM)
+  asa-classifier:
+    build: .
+    container_name: asa-classifier
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_BASE=${OPENAI_API_BASE}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - LLM_MODEL=${LLM_MODEL}
+      - LLM_NUM_CTX=${LLM_NUM_CTX}
+      - VISION_MODEL=${VISION_MODEL}
+      - VISION_ENABLED=${VISION_ENABLED}
+      - DEBUG_MODE=${DEBUG_MODE}
+      - ADMIN_USERNAME=${ADMIN_USERNAME}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+      - ALLOW_USER_TRAINING=${ALLOW_USER_TRAINING}
+      - REMOTE_OCR_URL=http://paddleocr-service:8080/ocr
+    volumes:
+      - ./docs/input:/app/docs/input
+      - ./docs/processed:/app/docs/processed
+      - ./docs/training:/app/docs/training
+      - ./docs/jobs:/app/docs/jobs
+      - ./asa_vector_db:/app/asa_vector_db
+    depends_on:
+      paddleocr-service:
+        condition: service_started
+    restart: unless-stopped
+
+  # The High-Quality OCR Service (PaddleOCR for Handwriting/ICR)
+  paddleocr-service:
+    build: ./paddleocr_service
+    container_name: paddleocr-service
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+  # Ollama LLM Service — only started with: docker compose --profile ollama up
+  ollama:
+    profiles: [ollama]
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    # --- Uncomment for NVIDIA GPU support ---
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+    # environment:
+    #   - NVIDIA_VISIBLE_DEVICES=all
+    # Requires: nvidia-container-toolkit on the host
+    # Guide: https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html
+    # ----------------------------------------
+    healthcheck:
+      test: ["CMD-SHELL", "ollama list > /dev/null 2>&1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    restart: unless-stopped
+
+  # Short-lived container that pre-pulls the model before the classifier starts
+  ollama-init:
+    profiles: [ollama]
+    image: ollama/ollama
+    container_name: ollama-init
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    entrypoint: ["/bin/sh", "-c", "ollama pull ${LLM_MODEL} && ollama pull ${VISION_MODEL}"]
+    depends_on:
+      ollama:
+        condition: service_healthy
+    restart: "no"
+
+volumes:
+  ollama_data:
