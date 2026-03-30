@@ -83,6 +83,15 @@ class ClassificationService:
             if config.DEBUG_MODE:
                 print(f"[DEBUG] [Warning] Could not load full ASA code list: {e}")
             self.code_to_meta = {}
+
+        # Pre-build the full assignable code list for prompt injection.
+        # Only leaf-level codes (those with a disposal_action) are included —
+        # parent/category codes cannot be assigned to a document.
+        self._assignable_code_list = "\n".join(
+            f"  {code} | {meta.get('hierarchy', '')}"
+            for code, meta in sorted(self.code_to_meta.items())
+            if meta.get("disposal_action")
+        )
         
         self.client = openai.OpenAI(
             api_key=config.OPENAI_API_KEY,
@@ -342,16 +351,16 @@ class ClassificationService:
             for res in example_results:
                 context_text += f"- Previously classified as {res.metadata.get('asa_code')} ({res.metadata.get('hierarchy')})\n"
 
-        assignable_hint = self._assignable_codes_hint(rules_results)
+        code_list_hint = self._full_code_list_hint()
 
         prompt = f"""
         {context_text}
-        {assignable_hint}
+        {code_list_hint}
         DOCUMENT DESCRIPTION PROVIDED BY USER:
         {description}
 
         Task: Based on the rules and examples above, suggest the top 3 most likely ASA codes for a document matching this description.
-        IMPORTANT: Strongly prefer codes from the VALID ASSIGNABLE CODES list above. If the correct code for this document is obviously not in that list, you may suggest other real ASA leaf-level codes — but never invent codes, and never suggest parent or category codes that lack a disposal action.
+        IMPORTANT: You MUST only suggest codes from the COMPLETE LIST OF VALID ASSIGNABLE ASA CODES above. Never invent codes. Never suggest parent or category codes — every suggested code must appear in that list.
         Return ONLY a JSON object with a 'suggestions' array. Each item must have:
         - 'asa_code': the numeric code only, e.g. "2.1.3" (NOT the title or hierarchy text)
         - 'hierarchy': the full classification path, e.g. "Function > Class > Subclass"
@@ -380,27 +389,14 @@ class ClassificationService:
         # Remove hallucinated or non-assignable (parent) codes
         return self._filter_valid_suggestions(suggestions)
 
-    def _assignable_codes_hint(self, rules_results) -> str:
+    def _full_code_list_hint(self) -> str:
         """
-        Build a prompt hint listing only assignable (leaf-level) codes from the RAG
-        context — i.e. codes that exist in code_to_meta AND have a disposal_action.
-        This constrains the LLM to codes that can actually be assigned to a document.
+        Return the complete list of assignable ASA codes for prompt injection.
+        Gives the LLM visibility of the full valid universe, not just what RAG retrieved.
         """
-        lines = []
-        for res in rules_results:
-            code = res.metadata.get("asa_code")
-            if not code:
-                continue
-            meta = self.code_to_meta.get(code, {})
-            if meta.get("disposal_action"):
-                lines.append(
-                    f"  - {code} | {meta.get('hierarchy', '')} | Disposal: {meta['disposal_action']}"
-                )
-        if not lines:
-            return ""
         return (
-            "\nVALID ASSIGNABLE CODES (from the rules above — only these may be suggested):\n"
-            + "\n".join(lines)
+            "\nCOMPLETE LIST OF VALID ASSIGNABLE ASA CODES:\n"
+            + self._assignable_code_list
             + "\n"
         )
 
@@ -592,16 +588,16 @@ Return ONLY a JSON object: {"type": "document" or "photo", "content": "extracted
             "Prioritise ASA codes relating to photographs, visual records, events, people, and facilities.\n"
         ) if is_photo else ""
 
-        assignable_hint = self._assignable_codes_hint(rules_results)
+        code_list_hint = self._full_code_list_hint()
 
         prompt = f"""
         {context_text}
-        {photo_hint}{assignable_hint}
+        {photo_hint}{code_list_hint}
         NEW DOCUMENT TO CLASSIFY:
         {ocr_text}
 
         Task: Based on the rules and similar historical examples, return the top 3 most likely ASA classifications for this document, ranked by confidence.
-        IMPORTANT: Strongly prefer codes from the VALID ASSIGNABLE CODES list above. If the correct code for this document is obviously not in that list, you may suggest other real ASA leaf-level codes — but never invent codes, and never suggest parent or category codes that lack a disposal action.
+        IMPORTANT: You MUST only suggest codes from the COMPLETE LIST OF VALID ASSIGNABLE ASA CODES above. Never invent codes. Never suggest parent or category codes — every suggested code must appear in that list.
         Return ONLY a JSON object with:
         - 'suggested_title': a concise, descriptive title for this specific document (e.g. "Staff Meeting Minutes — 12 March 2024", "Invoice — ABC Supplies Pty Ltd", "Annual Report 2023–24"). Be specific using names, dates, or other distinguishing details visible in the document.
         - 'suggestions' array, where each item has:
