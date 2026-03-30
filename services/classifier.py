@@ -365,7 +365,7 @@ IMPORTANT: Every suggested code MUST appear exactly in the list above. Never inv
 Return ONLY a JSON object with a 'suggestions' array. Each item must have:
 - 'asa_code': the numeric code only, e.g. "2.1.3" (NOT the title or hierarchy text)
 - 'hierarchy': the full classification path, e.g. "Function > Class > Subclass"
-- 'confidence': a float between 0 and 1
+- 'confidence': a precise float between 0 and 1 — avoid round numbers like 0.95/0.85/0.75, use specific values like 0.91 or 0.78
 - 'reasoning': one sentence explaining why this code applies
 """
 
@@ -608,7 +608,7 @@ Return ONLY a JSON object with:
   - 'asa_code': the numeric code only, e.g. "2.1.3" (NOT the title or hierarchy text)
   - 'hierarchy': the full classification path, e.g. "Function > Class > Subclass"
   - 'reasoning': one or two sentences explaining why this code applies
-  - 'confidence': a float between 0 and 1
+  - 'confidence': a precise float between 0 and 1 — avoid round numbers like 0.95/0.85/0.75, use specific values like 0.91 or 0.78
 """
 
         if config.DEBUG_MODE:
