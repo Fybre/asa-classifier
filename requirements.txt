@@ -1,6 +1,7 @@
 fastapi
 jinja2
 pdfplumber
+pymupdf
 python-docx
 xlrd
 uvicorn

@@ -99,6 +99,32 @@ def extract_content(file_path: str) -> tuple:
             # Fall through to OCR
 
     text = ocr_svc.process(file_path)
+
+    # If OCR returned nothing for a PDF and vision is enabled, the PDF is likely
+    # a photo exported as PDF (e.g. iPhone IMG_xxxx.pdf). Render the first page
+    # as an image and pass it through the vision model.
+    if not text and ext == ".pdf" and config.VISION_ENABLED:
+        img_path = file_path + "_p1.png"
+        try:
+            import fitz  # pymupdf
+            doc = fitz.open(file_path)
+            if len(doc) > 0:
+                pix = doc[0].get_pixmap(matrix=fitz.Matrix(2, 2))
+                pix.save(img_path)
+                doc.close()
+                if config.DEBUG_MODE:
+                    print(f"[DEBUG] OCR failed for PDF — trying vision model on rendered page 1.")
+                vision_result = cls_svc.analyse_image(img_path)
+                content = vision_result.get("content", "")
+                is_photo = vision_result.get("is_photo", False)
+                if content:
+                    return content, is_photo, content if is_photo else ""
+        except Exception as e:
+            print(f"[!] Vision fallback for image-PDF failed: {e}")
+        finally:
+            if os.path.exists(img_path):
+                os.remove(img_path)
+
     return text, False, ""
 
 
