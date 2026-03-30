@@ -342,13 +342,16 @@ class ClassificationService:
             for res in example_results:
                 context_text += f"- Previously classified as {res.metadata.get('asa_code')} ({res.metadata.get('hierarchy')})\n"
 
+        assignable_hint = self._assignable_codes_hint(rules_results)
+
         prompt = f"""
         {context_text}
-
+        {assignable_hint}
         DOCUMENT DESCRIPTION PROVIDED BY USER:
         {description}
 
         Task: Based on the rules and examples above, suggest the top 3 most likely ASA codes for a document matching this description.
+        IMPORTANT: You MUST only suggest codes from the VALID ASSIGNABLE CODES list above. Do not invent codes. Do not suggest parent or category codes — only leaf-level codes that have a specific disposal action.
         Return ONLY a JSON object with a 'suggestions' array. Each item must have:
         - 'asa_code': the numeric code only, e.g. "2.1.3" (NOT the title or hierarchy text)
         - 'hierarchy': the full classification path, e.g. "Function > Class > Subclass"
@@ -374,7 +377,48 @@ class ClassificationService:
             if meta.get("hierarchy"):
                 s["hierarchy"] = meta["hierarchy"]
 
-        return suggestions
+        # Remove hallucinated or non-assignable (parent) codes
+        return self._filter_valid_suggestions(suggestions)
+
+    def _assignable_codes_hint(self, rules_results) -> str:
+        """
+        Build a prompt hint listing only assignable (leaf-level) codes from the RAG
+        context — i.e. codes that exist in code_to_meta AND have a disposal_action.
+        This constrains the LLM to codes that can actually be assigned to a document.
+        """
+        lines = []
+        for res in rules_results:
+            code = res.metadata.get("asa_code")
+            if not code:
+                continue
+            meta = self.code_to_meta.get(code, {})
+            if meta.get("disposal_action"):
+                lines.append(
+                    f"  - {code} | {meta.get('hierarchy', '')} | Disposal: {meta['disposal_action']}"
+                )
+        if not lines:
+            return ""
+        return (
+            "\nVALID ASSIGNABLE CODES (from the rules above — only these may be suggested):\n"
+            + "\n".join(lines)
+            + "\n"
+        )
+
+    def _filter_valid_suggestions(self, suggestions: list) -> list:
+        """
+        Remove any suggestion whose code does not exist in the knowledge base or
+        has no disposal action (i.e. is a parent/category node, not assignable).
+        """
+        valid = []
+        for s in suggestions:
+            code = s.get("asa_code")
+            meta = self.code_to_meta.get(code, {})
+            if meta.get("disposal_action"):
+                valid.append(s)
+            elif config.DEBUG_MODE:
+                reason = "not in KB" if not meta else "no disposal action (parent code)"
+                print(f"[DEBUG] Filtered suggestion {code!r}: {reason}")
+        return valid
 
     def delete_example(self, example_id: str):
         """
@@ -548,13 +592,16 @@ Return ONLY a JSON object: {"type": "document" or "photo", "content": "extracted
             "Prioritise ASA codes relating to photographs, visual records, events, people, and facilities.\n"
         ) if is_photo else ""
 
+        assignable_hint = self._assignable_codes_hint(rules_results)
+
         prompt = f"""
         {context_text}
-        {photo_hint}
+        {photo_hint}{assignable_hint}
         NEW DOCUMENT TO CLASSIFY:
         {ocr_text}
 
         Task: Based on the rules and similar historical examples, return the top 3 most likely ASA classifications for this document, ranked by confidence.
+        IMPORTANT: You MUST only suggest codes from the VALID ASSIGNABLE CODES list above. Do not invent codes. Do not suggest parent or category codes — only leaf-level codes that have a specific disposal action.
         Return ONLY a JSON object with:
         - 'suggested_title': a concise, descriptive title for this specific document (e.g. "Staff Meeting Minutes — 12 March 2024", "Invoice — ABC Supplies Pty Ltd", "Annual Report 2023–24"). Be specific using names, dates, or other distinguishing details visible in the document.
         - 'suggestions' array, where each item has:
@@ -585,6 +632,9 @@ Return ONLY a JSON object: {"type": "document" or "photo", "content": "extracted
             s["description"] = meta.get("description", "")
             s["examples"] = meta.get("examples", "")
             s["disposal_action"] = meta.get("disposal_action", "")
+
+        # Remove hallucinated or non-assignable (parent) codes
+        suggestions = self._filter_valid_suggestions(suggestions)
 
         if config.DEBUG_MODE:
             print(f"[DEBUG] Suggested title: {suggested_title!r}")
