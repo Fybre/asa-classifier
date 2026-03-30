@@ -806,6 +806,8 @@ async def submit_job(
                     payload.update(wh_extra)
                     background_tasks.add_task(send_webhook, webhook_url, payload, webhook_secret, wh_headers)
                 result["webhook_queued"] = True
+            else:
+                result["webhook_queued"] = False
             return result
 
         # Verification required — persist document and job record
@@ -846,6 +848,8 @@ async def submit_job(
             "suggestions": suggestions,
             "filename": file.filename,
             "is_photo": is_photo,
+            "vision_description": vision_description or None,
+            "webhook_queued": False,
         }
 
     except HTTPException:
