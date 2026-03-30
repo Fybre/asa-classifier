@@ -371,7 +371,8 @@ class ClassificationService:
         response = self.client.chat.completions.create(
             model=config.LLM_MODEL,
             messages=[{"role": "user", "content": prompt}],
-            extra_body={"options": {"num_ctx": config.LLM_NUM_CTX}},
+            # num_ctx is Ollama-specific. For LM Studio / OpenAI, set context
+            # length in the server UI or via LLM_NUM_CTX (used for Ollama only).
         )
         result = self._parse_json(response.choices[0].message.content)
         suggestions = result.get("suggestions", [])
@@ -544,7 +545,8 @@ Return ONLY a JSON object: {"type": "document" or "photo", "content": "extracted
                     {"type": "image_url", "image_url": {"url": f"data:{mime};base64,{b64}"}}
                 ]
             }],
-            extra_body={"options": {"num_ctx": config.LLM_NUM_CTX}},
+            # num_ctx is Ollama-specific. For LM Studio / OpenAI, set context
+            # length in the server UI or via LLM_NUM_CTX (used for Ollama only).
         )
 
         result = self._parse_json(response.choices[0].message.content)
@@ -613,7 +615,8 @@ Return ONLY a JSON object: {"type": "document" or "photo", "content": "extracted
         response = self.client.chat.completions.create(
             model=config.LLM_MODEL,
             messages=[{"role": "user", "content": prompt}],
-            extra_body={"options": {"num_ctx": config.LLM_NUM_CTX}},
+            # num_ctx is Ollama-specific. For LM Studio / OpenAI, set context
+            # length in the server UI or via LLM_NUM_CTX (used for Ollama only).
         )
 
         result_json = self._parse_json(response.choices[0].message.content)
