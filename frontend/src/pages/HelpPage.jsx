@@ -150,6 +150,7 @@ function ApiReference() {
         description="Upload a document and receive a synchronous classification result. The top suggestion is returned alongside up to two alternatives. Supports PDF, DOCX, XLSX, XLS, JPG, PNG, TXT."
         body={`file  (file, required) — the document to classify`}
         response={`{
+  "suggested_title": "Enrolment Form — Jane Smith 2024",
   "suggestions": [
     {
       "asa_code": "4.1.2",
@@ -245,20 +246,24 @@ webhook_extra            (JSON string, optional)      — extra fields merged in
 metadata                 (JSON string, optional)      — arbitrary metadata stored with the job`}
         response={`// Scenario 1 & 2 — no verification needed:
 {
+  "suggested_title": "Invoice — ABC Supplies March 2024",
   "suggestions": [...],
   "filename": "doc.pdf",
   "is_photo": false,
   "vision_description": null,
-  "webhook_queued": true
+  "webhook_queued": true   // false if no webhook_url was provided
 }
 
 // Scenario 3 — verification required:
 {
   "job_id": "550e8400-e29b-41d4-a716-446655440000",
   "verify_url": "/verify/550e8400-e29b-41d4-a716-446655440000",
+  "suggested_title": "Invoice — ABC Supplies March 2024",
   "suggestions": [...],
   "filename": "doc.pdf",
-  "is_photo": false
+  "is_photo": false,
+  "vision_description": null,
+  "webhook_queued": false
 }`}
         example={`# Immediate result, no verification
 curl -X POST http://localhost:8000/api/jobs/submit \\
@@ -296,6 +301,7 @@ curl -X POST http://localhost:8000/api/jobs/submit \\
   "filename": "document.pdf",
   "file_ext": ".pdf",
   "status": "pending_verification",
+  "suggested_title": "Invoice — ABC Supplies March 2024",
   "suggestions": [
     {
       "asa_code": "4.1.2",
@@ -305,7 +311,7 @@ curl -X POST http://localhost:8000/api/jobs/submit \\
       "disposal_action": "Destroy 7 years after student leaves."
     }
   ],
-  "metadata": { "is_photo": false },
+  "metadata": { "is_photo": false, "suggested_title": "Invoice — ABC Supplies March 2024" },
   "created_at": "2025-06-01T14:32:00.000000+00:00"
 }`}
         example={`curl http://localhost:8000/api/jobs/550e8400-e29b-41d4-a716-446655440000`}
@@ -600,8 +606,9 @@ archive   (bool, default true)    — store the files`}
         response={`[
   {
     "asa_code": "4.1.2",
-    "example_count": 5,
-    "last_trained": "2025-06-01T14:32:00"
+    "hierarchy": "Student Records > Enrolment",
+    "count": 5,
+    "last_trained": "2025-06-01T14:32:00.000000+00:00"
   }
 ]`}
         example={`curl -u admin:password http://localhost:8000/api/training/codes`}
