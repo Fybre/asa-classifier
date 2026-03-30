@@ -87,8 +87,9 @@ class ClassificationService:
         # Pre-build the full assignable code list for prompt injection.
         # Only leaf-level codes (those with a disposal_action) are included —
         # parent/category codes cannot be assigned to a document.
+        # Description is included so the LLM can match by meaning, not just code number.
         self._assignable_code_list = "\n".join(
-            f"  {code} | {meta.get('hierarchy', '')}"
+            f"  {code} | {meta.get('hierarchy', '')} — {meta.get('description', '').strip()}"
             for code, meta in sorted(self.code_to_meta.items())
             if meta.get("disposal_action")
         )
@@ -339,34 +340,34 @@ class ClassificationService:
     def suggest(self, description: str) -> list:
         """Returns top 3 ASA code suggestions for a plain-text description."""
         query = clean_for_embedding(description)
-        rules_results = self.db_rules.similarity_search(query, k=10)
+        rules_results = self.db_rules.similarity_search(query, k=5)
         example_results = self.db_examples.similarity_search(query, k=3)
 
-        context_text = "OFFICIAL ASA RULES:\n"
+        rag_context = "SUPPLEMENTARY CONTEXT (most similar rules and prior classifications — for reference only):\n"
         for res in rules_results:
-            context_text += f"- Code {res.metadata.get('asa_code')}: {res.page_content}\n"
-
+            rag_context += f"- Code {res.metadata.get('asa_code')}: {res.page_content}\n"
         if example_results:
-            context_text += "\nSIMILAR PREVIOUSLY CLASSIFIED DOCUMENTS:\n"
+            rag_context += "\nSimilar previously classified documents:\n"
             for res in example_results:
-                context_text += f"- Previously classified as {res.metadata.get('asa_code')} ({res.metadata.get('hierarchy')})\n"
+                rag_context += f"- Classified as {res.metadata.get('asa_code')} ({res.metadata.get('hierarchy')})\n"
 
         code_list_hint = self._full_code_list_hint()
 
-        prompt = f"""
-        {context_text}
-        {code_list_hint}
-        DOCUMENT DESCRIPTION PROVIDED BY USER:
-        {description}
+        prompt = f"""You are an expert records manager. Your task is to suggest ASA classification codes for a described school document.
 
-        Task: Based on the rules and examples above, suggest the top 3 most likely ASA codes for a document matching this description.
-        IMPORTANT: You MUST only suggest codes from the COMPLETE LIST OF VALID ASSIGNABLE ASA CODES above. Never invent codes. Never suggest parent or category codes — every suggested code must appear in that list.
-        Return ONLY a JSON object with a 'suggestions' array. Each item must have:
-        - 'asa_code': the numeric code only, e.g. "2.1.3" (NOT the title or hierarchy text)
-        - 'hierarchy': the full classification path, e.g. "Function > Class > Subclass"
-        - 'confidence': a float between 0 and 1
-        - 'reasoning': one sentence explaining why this code applies
-        """
+{code_list_hint}
+{rag_context}
+DOCUMENT DESCRIPTION:
+{description}
+
+Task: Select the top 3 most appropriate ASA codes for a document matching this description from the COMPLETE LIST OF VALID ASSIGNABLE ASA CODES above, ranked by confidence.
+IMPORTANT: Every suggested code MUST appear exactly in the list above. Never invent codes. Never suggest parent or category codes.
+Return ONLY a JSON object with a 'suggestions' array. Each item must have:
+- 'asa_code': the numeric code only, e.g. "2.1.3" (NOT the title or hierarchy text)
+- 'hierarchy': the full classification path, e.g. "Function > Class > Subclass"
+- 'confidence': a float between 0 and 1
+- 'reasoning': one sentence explaining why this code applies
+"""
 
         response = self.client.chat.completions.create(
             model=config.LLM_MODEL,
@@ -564,8 +565,8 @@ Return ONLY a JSON object: {"type": "document" or "photo", "content": "extracted
         if config.DEBUG_MODE:
             print(f"[DEBUG] Embedding {len(embed_text)} chars (from {len(ocr_text)} raw) for retrieval.")
 
-        # 2. Retrieve the 10 most relevant official RULES
-        rules_results = self.db_rules.similarity_search(embed_text, k=10)
+        # 2. Retrieve the 5 most relevant rules for supplementary context
+        rules_results = self.db_rules.similarity_search(embed_text, k=5)
         if config.DEBUG_MODE:
             print(f"[DEBUG] RAG (Rules) matches: {[r.metadata.get('asa_code') for r in rules_results]}")
 
@@ -574,15 +575,14 @@ Return ONLY a JSON object: {"type": "document" or "photo", "content": "extracted
         if config.DEBUG_MODE:
             print(f"[DEBUG] RAG (Examples) matches: {[r.metadata.get('asa_code') for r in example_results]}")
 
-        # 4. Format Context
-        context_text = "OFFICIAL ASA RULES:\n"
+        # 4. Format supplementary RAG context
+        rag_context = "SUPPLEMENTARY CONTEXT (most similar rules and prior classifications — for reference only):\n"
         for res in rules_results:
-            context_text += f"- {res.page_content}\n"
-
+            rag_context += f"- {res.page_content}\n"
         if example_results:
-            context_text += "\nSIMILAR PREVIOUSLY CLASSIFIED EXAMPLES:\n"
+            rag_context += "\nSimilar previously classified documents:\n"
             for res in example_results:
-                context_text += f"- Previously classified as {res.metadata.get('asa_code')} ({res.metadata.get('hierarchy')})\n"
+                rag_context += f"- Classified as {res.metadata.get('asa_code')} ({res.metadata.get('hierarchy')})\n"
 
         # 5. Final classification via LLM
         photo_hint = (
@@ -592,22 +592,24 @@ Return ONLY a JSON object: {"type": "document" or "photo", "content": "extracted
 
         code_list_hint = self._full_code_list_hint()
 
-        prompt = f"""
-        {context_text}
-        {photo_hint}{code_list_hint}
-        NEW DOCUMENT TO CLASSIFY:
-        {ocr_text}
+        prompt = f"""You are an expert records manager. Your task is to classify a school document against the Australian Schools Archive (ASA) retention schedule.
 
-        Task: Based on the rules and similar historical examples, return the top 3 most likely ASA classifications for this document, ranked by confidence.
-        IMPORTANT: You MUST only suggest codes from the COMPLETE LIST OF VALID ASSIGNABLE ASA CODES above. Never invent codes. Never suggest parent or category codes — every suggested code must appear in that list.
-        Return ONLY a JSON object with:
-        - 'suggested_title': a concise, descriptive title for this specific document (e.g. "Staff Meeting Minutes — 12 March 2024", "Invoice — ABC Supplies Pty Ltd", "Annual Report 2023–24"). Be specific using names, dates, or other distinguishing details visible in the document.
-        - 'suggestions' array, where each item has:
-          - 'asa_code': the numeric code only, e.g. "2.1.3" (NOT the title or hierarchy text)
-          - 'hierarchy': the full classification path, e.g. "Function > Class > Subclass"
-          - 'reasoning': one or two sentences explaining why this code applies
-          - 'confidence': a float between 0 and 1
-        """
+{code_list_hint}
+{rag_context}
+{photo_hint}
+DOCUMENT TO CLASSIFY:
+{ocr_text}
+
+Task: Select the top 3 most appropriate ASA codes for this document from the COMPLETE LIST OF VALID ASSIGNABLE ASA CODES above, ranked by confidence.
+IMPORTANT: Every suggested code MUST appear exactly in the list above. Never invent codes. Never suggest parent or category codes.
+Return ONLY a JSON object with:
+- 'suggested_title': a concise, descriptive title for this specific document (e.g. "Staff Meeting Minutes — 12 March 2024", "Invoice — ABC Supplies Pty Ltd", "Annual Report 2023–24"). Be specific using names, dates, or other distinguishing details visible in the document.
+- 'suggestions' array, where each item has:
+  - 'asa_code': the numeric code only, e.g. "2.1.3" (NOT the title or hierarchy text)
+  - 'hierarchy': the full classification path, e.g. "Function > Class > Subclass"
+  - 'reasoning': one or two sentences explaining why this code applies
+  - 'confidence': a float between 0 and 1
+"""
 
         if config.DEBUG_MODE:
             print(f"[DEBUG] Sending request to LLM ({config.LLM_MODEL})...")
