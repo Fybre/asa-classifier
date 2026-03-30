@@ -330,7 +330,7 @@ class ClassificationService:
     def suggest(self, description: str) -> list:
         """Returns top 3 ASA code suggestions for a plain-text description."""
         query = clean_for_embedding(description)
-        rules_results = self.db_rules.similarity_search(query, k=5)
+        rules_results = self.db_rules.similarity_search(query, k=10)
         example_results = self.db_examples.similarity_search(query, k=3)
 
         context_text = "OFFICIAL ASA RULES:\n"
@@ -351,7 +351,7 @@ class ClassificationService:
         {description}
 
         Task: Based on the rules and examples above, suggest the top 3 most likely ASA codes for a document matching this description.
-        IMPORTANT: You MUST only suggest codes from the VALID ASSIGNABLE CODES list above. Do not invent codes. Do not suggest parent or category codes — only leaf-level codes that have a specific disposal action.
+        IMPORTANT: Strongly prefer codes from the VALID ASSIGNABLE CODES list above. If the correct code for this document is obviously not in that list, you may suggest other real ASA leaf-level codes — but never invent codes, and never suggest parent or category codes that lack a disposal action.
         Return ONLY a JSON object with a 'suggestions' array. Each item must have:
         - 'asa_code': the numeric code only, e.g. "2.1.3" (NOT the title or hierarchy text)
         - 'hierarchy': the full classification path, e.g. "Function > Class > Subclass"
@@ -566,8 +566,8 @@ Return ONLY a JSON object: {"type": "document" or "photo", "content": "extracted
         if config.DEBUG_MODE:
             print(f"[DEBUG] Embedding {len(embed_text)} chars (from {len(ocr_text)} raw) for retrieval.")
 
-        # 2. Retrieve the 5 most relevant official RULES
-        rules_results = self.db_rules.similarity_search(embed_text, k=5)
+        # 2. Retrieve the 10 most relevant official RULES
+        rules_results = self.db_rules.similarity_search(embed_text, k=10)
         if config.DEBUG_MODE:
             print(f"[DEBUG] RAG (Rules) matches: {[r.metadata.get('asa_code') for r in rules_results]}")
 
@@ -601,7 +601,7 @@ Return ONLY a JSON object: {"type": "document" or "photo", "content": "extracted
         {ocr_text}
 
         Task: Based on the rules and similar historical examples, return the top 3 most likely ASA classifications for this document, ranked by confidence.
-        IMPORTANT: You MUST only suggest codes from the VALID ASSIGNABLE CODES list above. Do not invent codes. Do not suggest parent or category codes — only leaf-level codes that have a specific disposal action.
+        IMPORTANT: Strongly prefer codes from the VALID ASSIGNABLE CODES list above. If the correct code for this document is obviously not in that list, you may suggest other real ASA leaf-level codes — but never invent codes, and never suggest parent or category codes that lack a disposal action.
         Return ONLY a JSON object with:
         - 'suggested_title': a concise, descriptive title for this specific document (e.g. "Staff Meeting Minutes — 12 March 2024", "Invoice — ABC Supplies Pty Ltd", "Annual Report 2023–24"). Be specific using names, dates, or other distinguishing details visible in the document.
         - 'suggestions' array, where each item has:
