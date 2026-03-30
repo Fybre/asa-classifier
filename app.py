@@ -279,6 +279,7 @@ async def analyse_document(file: UploadFile = File(...)):
         shutil.copyfileobj(file.file, buffer)
 
     try:
+        t_start = time.time()
         text, is_photo, vision_description = extract_content(file_path)
         if not text:
             raise HTTPException(status_code=422, detail="No text could be extracted from the document.")
@@ -290,6 +291,8 @@ async def analyse_document(file: UploadFile = File(...)):
             "filename": file.filename,
             "is_photo": is_photo,
             "vision_description": vision_description or None,
+            "llm_model": config.LLM_MODEL,
+            "processing_time_seconds": round(time.time() - t_start, 2),
         }
     except HTTPException:
         raise
@@ -764,6 +767,7 @@ async def submit_job(
         shutil.copyfileobj(file.file, buf)
 
     try:
+        t_start = time.time()
         text, is_photo, vision_description = extract_content(temp_path)
         if not text:
             raise HTTPException(status_code=422, detail="No text could be extracted from the document.")
@@ -787,6 +791,8 @@ async def submit_job(
                 "filename": file.filename,
                 "is_photo": is_photo,
                 "vision_description": vision_description or None,
+                "llm_model": config.LLM_MODEL,
+                "processing_time_seconds": round(time.time() - t_start, 2),
             }
             if webhook_url:
                 # For no-verify, fire webhook with top suggestion as confirmed result
@@ -876,6 +882,8 @@ async def submit_job(
             "is_photo": is_photo,
             "vision_description": vision_description or None,
             "webhook_queued": False,
+            "llm_model": config.LLM_MODEL,
+            "processing_time_seconds": round(time.time() - t_start, 2),
         }
 
     except HTTPException:
