@@ -11,9 +11,11 @@ VECTOR_DB_PATH = "asa_vector_db"
 # 2. LLM Configuration
 # Use "http://localhost:11434/v1" for local Ollama
 # Use "https://api.openai.com/v1" for OpenAI
+# Use "https://<resource>.openai.azure.com" + set OPENAI_API_VERSION for Azure OpenAI
 OPENAI_API_BASE = os.getenv("OPENAI_API_BASE", "https://api.openai.com/v1")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "your-api-key-here")
 LLM_MODEL = os.getenv("LLM_MODEL", "gpt-4o") # Or "llama3" if local
+OPENAI_API_VERSION = os.getenv("OPENAI_API_VERSION", None)  # Set for Azure OpenAI; leave blank for standard OpenAI/local
 
 # 3. OCR Configuration
 # If you run DocTR or PaddleOCR in a separate container, put the URL here

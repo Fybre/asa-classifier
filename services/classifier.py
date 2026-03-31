@@ -94,16 +94,33 @@ class ClassificationService:
             if meta.get("disposal_action")
         )
         
-        self.client = openai.OpenAI(
-            api_key=config.OPENAI_API_KEY,
-            base_url=config.OPENAI_API_BASE
-        )
+        if config.OPENAI_API_VERSION:
+            self.client = openai.AzureOpenAI(
+                api_key=config.OPENAI_API_KEY,
+                azure_endpoint=config.OPENAI_API_BASE,
+                api_version=config.OPENAI_API_VERSION,
+            )
+        else:
+            self.client = openai.OpenAI(
+                api_key=config.OPENAI_API_KEY,
+                base_url=config.OPENAI_API_BASE,
+            )
 
         # Separate client for vision — same endpoint, different model
-        self.vision_client = openai.OpenAI(
-            api_key=config.OPENAI_API_KEY,
-            base_url=config.OPENAI_API_BASE
-        ) if config.VISION_ENABLED else None
+        if config.VISION_ENABLED:
+            if config.OPENAI_API_VERSION:
+                self.vision_client = openai.AzureOpenAI(
+                    api_key=config.OPENAI_API_KEY,
+                    azure_endpoint=config.OPENAI_API_BASE,
+                    api_version=config.OPENAI_API_VERSION,
+                )
+            else:
+                self.vision_client = openai.OpenAI(
+                    api_key=config.OPENAI_API_KEY,
+                    base_url=config.OPENAI_API_BASE,
+                )
+        else:
+            self.vision_client = None
 
     def _parse_json(self, text: str) -> dict:
         """Parse JSON from LLM response, stripping markdown code blocks if present."""
