@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { analyseDocument, suggestCodes, trainDocument, getSettings } from '../api.js'
+import fybreLogo from '../assets/fybre_logo.png'
 
 const TABS = ['Search Codes', 'Describe Document', 'Classify Document', 'Batch Classify']
 const SUPPORTED = '.pdf,.jpg,.jpeg,.png,.txt,.docx,.xlsx,.xls'
@@ -833,6 +834,14 @@ export default function UserPortal() {
             <p className="text-slate-500 text-sm ml-11">ASA Retention Schedule Classifier</p>
           </div>
           <div className="flex items-center gap-2 mt-1">
+            <a
+              href="https://github.com/Fybre"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Fybre on GitHub"
+            >
+              <img src={fybreLogo} alt="Fybre" className="h-7 w-auto opacity-80 hover:opacity-100 transition-opacity" />
+            </a>
             <Link
               to="/admin"
               className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 hover:border-slate-600 hover:bg-slate-700 flex items-center justify-center transition-colors"
