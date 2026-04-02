@@ -268,7 +268,7 @@ async def upload_document(background_tasks: BackgroundTasks, file: UploadFile = 
 
 
 @app.post("/api/analyse")
-async def analyse_document(file: UploadFile = File(...)):
+async def analyse_document(file: UploadFile = File(...), student_specific: bool = Form(False)):
     """Upload a document and receive classification results synchronously."""
     ext = os.path.splitext(file.filename)[1].lower()
     if ext not in SUPPORTED_EXTENSIONS:
@@ -284,12 +284,13 @@ async def analyse_document(file: UploadFile = File(...)):
         if not text:
             raise HTTPException(status_code=422, detail="No text could be extracted from the document.")
 
-        classify_result = cls_svc.classify(text, is_photo=is_photo)
+        classify_result = cls_svc.classify(text, is_photo=is_photo, student_specific=student_specific)
         return {
             "suggested_title": classify_result.get("suggested_title", ""),
             "suggestions": classify_result["suggestions"],
             "filename": file.filename,
             "is_photo": is_photo,
+            "student_specific": student_specific,
             "vision_description": vision_description or None,
             "llm_model": config.LLM_MODEL,
             "processing_time_seconds": round(time.time() - t_start, 2),
@@ -667,6 +668,7 @@ async def submit_job(
     # (FastAPI would coerce a missing bool field to False, masking the fallback).
     verify: Optional[str] = Form(None),
     auto_confirm_threshold: Optional[str] = Form(None),
+    student_specific: Optional[str] = Form(None),
     webhook_url: Optional[str] = Form(None),
     webhook_headers: Optional[str] = Form(None),
     webhook_secret: Optional[str] = Form(None),
@@ -726,6 +728,7 @@ async def submit_job(
 
     verify_flag         = _bool(_get(verify, "verify", "false"))
     auto_threshold      = _float_or_none(_get(auto_confirm_threshold, "auto_confirm_threshold"))
+    student_specific_flag = _bool(_get(student_specific, "student_specific", "false"))
     webhook_url         = _get(webhook_url, "webhook_url")
     webhook_secret      = _get(webhook_secret, "webhook_secret")
     webhook_template    = _get(webhook_template, "webhook_template")
@@ -772,7 +775,7 @@ async def submit_job(
         if not text:
             raise HTTPException(status_code=422, detail="No text could be extracted from the document.")
 
-        classify_result = cls_svc.classify(text, is_photo=is_photo)
+        classify_result = cls_svc.classify(text, is_photo=is_photo, student_specific=student_specific_flag)
         suggestions = classify_result["suggestions"]
         suggested_title = classify_result.get("suggested_title", "")
         top = suggestions[0] if suggestions else {}

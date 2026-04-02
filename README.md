@@ -163,6 +163,15 @@ Files are OCR'd, added to the examples store under the given code, then deleted.
 | `POST` | `/api/analyse` | Synchronous classification — returns results immediately |
 | `POST` | `/api/suggest` | Get top 3 code suggestions for a plain-text description |
 
+#### `/api/analyse` parameters
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `file` | file | required | Document to classify |
+| `student_specific` | bool | `false` | When `true`, instructs the LLM to strongly prefer individual-student ASA codes (3.2.1, 3.4.x, all 4.x, and the individual-student sub-codes within 5.x) over school-wide or program-level codes |
+
+The same `student_specific` field is also accepted by `/api/jobs/submit`.
+
 ### Verification Workflow (Jobs)
 
 | Method | Endpoint | Description |
@@ -235,6 +244,7 @@ Files are OCR'd, added to the examples store under the given code, then deleted.
   ],
   "filename": "meeting_minutes.pdf",
   "is_photo": false,
+  "student_specific": false,
   "vision_description": null,
   "llm_model": "gpt-4o",
   "processing_time_seconds": 3.45

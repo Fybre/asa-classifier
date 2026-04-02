@@ -573,7 +573,7 @@ Return ONLY a JSON object: {"type": "document" or "photo", "content": "extracted
             "content": result.get("content", "")
         }
 
-    def classify(self, ocr_text: str, is_photo: bool = False):
+    def classify(self, ocr_text: str, is_photo: bool = False, student_specific: bool = False):
         if config.DEBUG_MODE:
             print(f"[DEBUG] Starting classification process...")
 
@@ -607,13 +607,42 @@ Return ONLY a JSON object: {"type": "document" or "photo", "content": "extracted
             "Prioritise ASA codes relating to photographs, visual records, events, people, and facilities.\n"
         ) if is_photo else ""
 
+        student_hint = (
+            "\nIMPORTANT: This document is associated with a specific individual student (not the school "
+            "as a whole or all students in general). You MUST strongly prefer codes that apply to individual "
+            "student records. The student-specific codes in the ASA schedule are:\n"
+            "  3.2.1  Student Services > Out Of Hours Care > Attendance\n"
+            "  3.4.1  Student Services > Accommodation > Successful\n"
+            "  3.4.2  Student Services > Accommodation > Unsuccessful\n"
+            "  4.1.1  Student Management > Student Master Record > Indigenous Students\n"
+            "  4.1.2  Student Management > Student Master Record > Students in Out-of-Home Care\n"
+            "  4.1.3  Student Management > Student Master Record > Other Students\n"
+            "  4.1.4  Student Management > Student Master Record > Supporting Records For Student Master Record\n"
+            "  4.2.2  Student Management > Admissions > Individual - Successful\n"
+            "  4.2.3  Student Management > Admissions > Individual - Departures\n"
+            "  4.2.4  Student Management > Admissions > Individual - Unsuccessful\n"
+            "  4.3    Student Management > Attendance\n"
+            "  4.4.3  Student Management > Financial Assistance > Individual Awards\n"
+            "  4.5.3  Student Management > Awards > Individual Awards\n"
+            "  4.6.2  Student Management > Health and Welfare > Student Medical and Welfare History\n"
+            "  4.7.1  Student Management > Child Protection > Cases\n"
+            "  4.8.2  Student Management > Behaviour > Routine Events\n"
+            "  4.9    Student Management > Home Schooling\n"
+            "  4.10   Student Management > Work Experience\n"
+            "  5.3.2  Teaching And Learning > Special Education > Individual Students\n"
+            "  5.4.2  Teaching And Learning > High Potential Programs > Individual Students\n"
+            "  5.5.2  Teaching And Learning > Learning Analytics > Individual Student\n"
+            "  5.7.3  Teaching And Learning > Examinations & Assessments > Individual Students - Results\n"
+            "Only use a non-student-specific code if the document clearly does not relate to any individual student.\n"
+        ) if student_specific else ""
+
         code_list_hint = self._full_code_list_hint()
 
         prompt = f"""You are an expert records manager. Your task is to classify a school document against the Australian Schools Archive (ASA) retention schedule.
 
 {code_list_hint}
 {rag_context}
-{photo_hint}
+{photo_hint}{student_hint}
 DOCUMENT TO CLASSIFY:
 {ocr_text}
 

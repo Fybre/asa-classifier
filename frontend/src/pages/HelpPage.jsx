@@ -111,6 +111,7 @@ function UserGuide() {
         <p>Upload a file to have it automatically classified. The system extracts text using OCR and matches it against the ASA schedule using a language model.</p>
         <p>Supported formats: PDF, Word (.docx), Excel (.xlsx, .xls), images (.jpg, .png), and plain text (.txt).</p>
         <p>For scanned images and photos, a vision model is used. If a photograph is detected (rather than a document scan), classification is weighted toward photo-relevant ASA codes.</p>
+        <p>When classifying a document that belongs to a specific student (rather than the school as a whole), pass <code className="bg-slate-700 text-slate-300 rounded px-1.5 py-0.5 text-xs font-mono">student_specific=true</code> via the API. This instructs the model to strongly prefer individual-student ASA codes (sections 3.2.1, 3.4.x, all of section 4, and the individual-student sub-codes within section 5).</p>
         <Note>Once a document has been classified, you can use the <strong>Train with this result</strong> button to save it as a training example. This improves future classifications for similar documents.</Note>
       </Section>
 
@@ -148,7 +149,12 @@ function ApiReference() {
         method="POST"
         path="/api/analyse"
         description="Upload a document and receive a synchronous classification result. The top suggestion is returned alongside up to two alternatives. Supports PDF, DOCX, XLSX, XLS, JPG, PNG, TXT."
-        body={`file  (file, required) — the document to classify`}
+        body={`file              (file, required)        — the document to classify
+student_specific  (bool, default false)  — when true, instructs the LLM to strongly prefer
+                                           individual-student ASA codes over school-wide or
+                                           program-level codes. Use this when the document is
+                                           associated with a specific student rather than the
+                                           school as a whole.`}
         response={`{
   "suggested_title": "Enrolment Form — Jane Smith 2024",
   "suggestions": [
@@ -164,10 +170,17 @@ function ApiReference() {
   ],
   "filename": "enrolment_form.pdf",
   "is_photo": false,
+  "student_specific": true,
   "vision_description": null
 }`}
-        example={`curl -X POST http://localhost:8000/api/analyse \\
-  -F "file=@enrolment_form.pdf"`}
+        example={`# Standard classification
+curl -X POST http://localhost:8000/api/analyse \\
+  -F "file=@enrolment_form.pdf"
+
+# Student-specific — prefer individual-student codes
+curl -X POST http://localhost:8000/api/analyse \\
+  -F "file=@report_card.pdf" \\
+  -F "student_specific=true"`}
       />
 
       <ApiBlock
@@ -228,7 +241,7 @@ curl "http://localhost:8000/api/asa-codes?q=enrolment"`}
           <li><strong className="text-slate-300">Human verification</strong> — <code className="text-indigo-300 font-mono text-xs">verify=true</code>. Stores the document, creates a job, and returns a <code className="text-indigo-300 font-mono text-xs">verify_url</code>. A human reviews the suggestions at that URL, selects a code, and confirms. On confirmation the webhook fires and the job and document are deleted.</li>
         </ol>
         <p>
-          When a webhook is confirmed, the payload includes an <code className="text-indigo-300 font-mono text-xs">X-ASA-Signature: sha256=&lt;hmac&gt;</code> header computed using your <code className="text-indigo-300 font-mono text-xs">webhook_secret</code>, and an <code className="text-indigo-300 font-mono text-xs">X-ASA-Timestamp</code> header for replay protection.
+          When a webhook fires, the payload includes an <code className="text-indigo-300 font-mono text-xs">X-ASA-Signature: sha256=&lt;hmac&gt;</code> header computed using your <code className="text-indigo-300 font-mono text-xs">webhook_secret</code>, and an <code className="text-indigo-300 font-mono text-xs">X-ASA-Timestamp</code> header for replay protection. To authenticate the outbound request to your endpoint, pass credentials via <code className="text-indigo-300 font-mono text-xs">webhook_header_Authorization</code> or <code className="text-indigo-300 font-mono text-xs">webhook_headers</code> — see the field reference below.
         </p>
       </div>
 
@@ -236,14 +249,22 @@ curl "http://localhost:8000/api/asa-codes?q=enrolment"`}
         method="POST"
         path="/api/jobs/submit"
         description="Submit a document for classification with optional human verification. See the workflow description above for the three scenarios."
-        body={`file                     (file, required)
-verify                   (bool, default false)       — require human verification
-auto_confirm_threshold   (number 0–100, optional)    — skip verify if confidence ≥ value
-webhook_url              (string, optional)           — URL to POST result to
-webhook_headers          (JSON string, optional)      — extra headers for the webhook
-webhook_secret           (string, optional)           — secret for HMAC signature
-webhook_extra            (JSON string, optional)      — extra fields merged into webhook payload
-metadata                 (JSON string, optional)      — arbitrary metadata stored with the job`}
+        body={`file                          (file, required)
+verify                        (bool, default false)    — require human verification
+auto_confirm_threshold        (number 0–100, optional) — skip verify if confidence ≥ value
+student_specific              (bool, default false)    — prefer individual-student ASA codes
+webhook_url                   (string, optional)       — URL to POST result to
+webhook_secret                (string, optional)       — shared secret for HMAC-SHA256 payload signing
+                                                          adds X-ASA-Signature and X-ASA-Timestamp headers
+webhook_headers               (JSON string, optional)  — headers sent with the webhook request, as a JSON
+                                                          object. Use this to authenticate against your endpoint:
+                                                          e.g. {"Authorization":"Bearer token","X-Api-Key":"abc"}
+webhook_header_<Name>         (string, optional)       — alternative to webhook_headers JSON — one field per
+                                                          header. Recommended for Therefore (avoids JSON mangling):
+                                                          webhook_header_Authorization: Bearer token
+                                                          webhook_header_X-Api-Key: abc123
+webhook_extra                 (JSON string, optional)  — extra fields merged into webhook payload
+metadata                      (JSON string, optional)  — arbitrary metadata stored with the job`}
         response={`// Scenario 1 & 2 — no verification needed:
 {
   "suggested_title": "Invoice — ABC Supplies March 2024",
@@ -269,12 +290,27 @@ metadata                 (JSON string, optional)      — arbitrary metadata sto
 curl -X POST http://localhost:8000/api/jobs/submit \\
   -F "file=@document.pdf"
 
-# Always verify — human reviews at verify_url
+# Webhook with Bearer token auth (JSON style)
 curl -X POST http://localhost:8000/api/jobs/submit \\
   -F "file=@document.pdf" \\
   -F "verify=true" \\
   -F "webhook_url=https://your-app.example.com/webhook" \\
-  -F "webhook_secret=mysecret"
+  -F 'webhook_headers={"Authorization":"Bearer my-token"}'
+
+# Webhook with Bearer token auth (prefixed field style — recommended)
+curl -X POST http://localhost:8000/api/jobs/submit \\
+  -F "file=@document.pdf" \\
+  -F "verify=true" \\
+  -F "webhook_url=https://your-app.example.com/webhook" \\
+  -F "webhook_header_Authorization=Bearer my-token"
+
+# Webhook with HMAC payload signing + auth header
+curl -X POST http://localhost:8000/api/jobs/submit \\
+  -F "file=@document.pdf" \\
+  -F "verify=true" \\
+  -F "webhook_url=https://your-app.example.com/webhook" \\
+  -F "webhook_secret=mysecret" \\
+  -F "webhook_header_Authorization=Bearer my-token"
 
 # Verify only when confidence is below 90 %
 curl -X POST http://localhost:8000/api/jobs/submit \\
@@ -282,7 +318,7 @@ curl -X POST http://localhost:8000/api/jobs/submit \\
   -F "verify=true" \\
   -F "auto_confirm_threshold=90" \\
   -F "webhook_url=https://your-app.example.com/webhook" \\
-  -F "webhook_secret=mysecret"
+  -F "webhook_header_Authorization=Bearer my-token"
 
 # Pass metadata and extra webhook fields
 curl -X POST http://localhost:8000/api/jobs/submit \\
