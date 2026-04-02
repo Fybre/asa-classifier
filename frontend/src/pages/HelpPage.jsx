@@ -290,6 +290,19 @@ metadata                      (JSON string, optional)  — arbitrary metadata st
 curl -X POST http://localhost:8000/api/jobs/submit \\
   -F "file=@document.pdf"
 
+# Student-specific — prefer individual-student ASA codes
+curl -X POST http://localhost:8000/api/jobs/submit \\
+  -F "file=@report_card.pdf" \\
+  -F "student_specific=true"
+
+# Student-specific with verification
+curl -X POST http://localhost:8000/api/jobs/submit \\
+  -F "file=@report_card.pdf" \\
+  -F "verify=true" \\
+  -F "student_specific=true" \\
+  -F "webhook_url=https://your-app.example.com/webhook" \\
+  -F "webhook_header_Authorization=Bearer my-token"
+
 # Webhook with Bearer token auth (JSON style)
 curl -X POST http://localhost:8000/api/jobs/submit \\
   -F "file=@document.pdf" \\
