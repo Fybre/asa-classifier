@@ -154,7 +154,11 @@ student_specific  (bool, default false)  — when true, instructs the LLM to str
                                            individual-student ASA codes over school-wide or
                                            program-level codes. Use this when the document is
                                            associated with a specific student rather than the
-                                           school as a whole.`}
+                                           school as a whole.
+metadata          (JSON string, optional) — envelope fallback: any of the above fields can be
+                                           passed as keys inside a metadata JSON part instead
+                                           of as individual form fields. Direct fields take
+                                           precedence when both are present.`}
         response={`{
   "suggested_title": "Enrolment Form — Jane Smith 2024",
   "suggestions": [
@@ -762,6 +766,7 @@ function ParamReference() {
         <ParamTable rows={[
           ['file',             'file',   'required', 'Document to classify. Supported formats: PDF, DOCX, XLSX, XLS, JPG, PNG, TXT.'],
           ['student_specific', 'bool',   'false',    'When true, instructs the LLM to strongly prefer individual-student ASA codes (3.2.1, 3.4.x, all of section 4, and the individual-student sub-codes within section 5) over school-wide or program-level codes.'],
+          ['metadata',         'JSON',   '—',        'Envelope fallback — any of the above fields can be passed as keys inside a metadata JSON part instead of as individual form fields. Direct fields take precedence when both are present.'],
         ]} />
       </div>
 

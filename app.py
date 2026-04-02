@@ -268,11 +268,21 @@ async def upload_document(background_tasks: BackgroundTasks, file: UploadFile = 
 
 
 @app.post("/api/analyse")
-async def analyse_document(file: UploadFile = File(...), student_specific: bool = Form(False)):
+async def analyse_document(
+    file: UploadFile = File(...),
+    student_specific: Optional[str] = Form(None),
+    metadata: Optional[str] = Form(None),
+):
     """Upload a document and receive classification results synchronously."""
     ext = os.path.splitext(file.filename)[1].lower()
     if ext not in SUPPORTED_EXTENSIONS:
         raise HTTPException(status_code=400, detail=f"Unsupported file type: {ext}")
+
+    # Support metadata envelope fallback (same pattern as /api/jobs/submit)
+    meta = _parse_json_field(metadata, {})
+    def _bool(v) -> bool:
+        return str(v).lower() in ("true", "1", "yes")
+    student_specific_flag = _bool(student_specific if student_specific is not None else meta.get("student_specific", "false"))
 
     file_path = os.path.join(config.TEMP_FOLDER, f"{uuid4().hex}_{file.filename}")
     with open(file_path, "wb") as buffer:
@@ -284,13 +294,13 @@ async def analyse_document(file: UploadFile = File(...), student_specific: bool 
         if not text:
             raise HTTPException(status_code=422, detail="No text could be extracted from the document.")
 
-        classify_result = cls_svc.classify(text, is_photo=is_photo, student_specific=student_specific)
+        classify_result = cls_svc.classify(text, is_photo=is_photo, student_specific=student_specific_flag)
         return {
             "suggested_title": classify_result.get("suggested_title", ""),
             "suggestions": classify_result["suggestions"],
             "filename": file.filename,
             "is_photo": is_photo,
-            "student_specific": student_specific,
+            "student_specific": student_specific_flag,
             "vision_description": vision_description or None,
             "llm_model": config.LLM_MODEL,
             "processing_time_seconds": round(time.time() - t_start, 2),
