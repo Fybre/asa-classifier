@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const SECTIONS = ['User Guide', 'API Reference']
+const SECTIONS = ['User Guide', 'API Reference', 'Parameter Reference']
 
 // ── Shared components ─────────────────────────────────────────────────────────
 
@@ -714,6 +714,177 @@ archive   (bool, default true)    — store the files`}
   )
 }
 
+// ── Parameter Reference ───────────────────────────────────────────────────────
+
+function ParamTable({ rows }) {
+  return (
+    <div className="overflow-x-auto rounded-xl border border-slate-700">
+      <table className="w-full text-sm">
+        <thead>
+          <tr className="bg-slate-800 text-left">
+            <th className="px-4 py-2.5 text-xs font-semibold text-slate-400 uppercase tracking-wider w-56">Parameter</th>
+            <th className="px-4 py-2.5 text-xs font-semibold text-slate-400 uppercase tracking-wider w-28">Type</th>
+            <th className="px-4 py-2.5 text-xs font-semibold text-slate-400 uppercase tracking-wider w-28">Default</th>
+            <th className="px-4 py-2.5 text-xs font-semibold text-slate-400 uppercase tracking-wider">Description</th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-slate-800">
+          {rows.map(([param, type, def, desc]) => (
+            <tr key={param} className="hover:bg-slate-800/40 transition-colors">
+              <td className="px-4 py-2.5 font-mono text-xs text-indigo-300 align-top">{param}</td>
+              <td className="px-4 py-2.5 text-xs text-slate-400 align-top">{type}</td>
+              <td className="px-4 py-2.5 font-mono text-xs text-slate-500 align-top">{def}</td>
+              <td className="px-4 py-2.5 text-xs text-slate-400 align-top leading-relaxed">{desc}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
+function ParamReference() {
+  return (
+    <div className="space-y-10">
+
+      <Note>
+        All file-upload endpoints use <code className="text-indigo-300 font-mono text-xs">multipart/form-data</code>.
+        Boolean fields accept <code className="text-indigo-300 font-mono text-xs">true</code> / <code className="text-indigo-300 font-mono text-xs">false</code>,
+        or <code className="text-indigo-300 font-mono text-xs">1</code> / <code className="text-indigo-300 font-mono text-xs">yes</code>.
+      </Note>
+
+      {/* ── /api/analyse ── */}
+      <div className="space-y-3">
+        <div className="flex items-center gap-3">
+          <span className="font-mono font-bold text-sm text-indigo-400">POST</span>
+          <span className="font-mono text-slate-300 text-sm">/api/analyse</span>
+        </div>
+        <ParamTable rows={[
+          ['file',             'file',   'required', 'Document to classify. Supported formats: PDF, DOCX, XLSX, XLS, JPG, PNG, TXT.'],
+          ['student_specific', 'bool',   'false',    'When true, instructs the LLM to strongly prefer individual-student ASA codes (3.2.1, 3.4.x, all of section 4, and the individual-student sub-codes within section 5) over school-wide or program-level codes.'],
+        ]} />
+      </div>
+
+      {/* ── /api/jobs/submit ── */}
+      <div className="space-y-3">
+        <div className="flex items-center gap-3">
+          <span className="font-mono font-bold text-sm text-indigo-400">POST</span>
+          <span className="font-mono text-slate-300 text-sm">/api/jobs/submit</span>
+        </div>
+        <p className="text-xs text-slate-500">All parameters can also be passed inside a <code className="font-mono text-slate-400">metadata</code> JSON envelope. Direct form fields take precedence.</p>
+
+        <GroupHeading>Classification</GroupHeading>
+        <ParamTable rows={[
+          ['file',                   'file',   'required', 'Document to classify.'],
+          ['student_specific',       'bool',   'false',    'Prefer individual-student ASA codes over school-wide or program-level codes.'],
+        ]} />
+
+        <GroupHeading>Verification</GroupHeading>
+        <ParamTable rows={[
+          ['verify',                 'bool',   'false',    'When true, stores the document and returns a verify_url for human review. When false, classifies immediately and returns the result.'],
+          ['auto_confirm_threshold', 'number', '—',        'Skip verification if the top suggestion confidence is ≥ this value (0–100). Only applies when verify=true.'],
+        ]} />
+
+        <GroupHeading>Webhook — Delivery</GroupHeading>
+        <ParamTable rows={[
+          ['webhook_url',            'string', '—',        'URL to POST the classification result to when confirmed.'],
+          ['webhook_template',       'string', '—',        'Name of the Jinja2 template to use for the webhook body. Built-in: therefore_save_index_quick, therefore_update_index. Custom templates can be managed via the admin UI.'],
+          ['webhook_extra',          'JSON',   '—',        'Key/value pairs merged into the top level of the webhook payload and available as template variables. e.g. {"doc_no":"1234"}'],
+          ['webhook_extra_<key>',    'string', '—',        'Flat alternative to webhook_extra JSON — one field per value. e.g. webhook_extra_doc_no=1234. Takes precedence over the JSON form.'],
+        ]} />
+
+        <GroupHeading>Webhook — Authentication</GroupHeading>
+        <ParamTable rows={[
+          ['webhook_secret',              'string', '—', 'Shared secret used to sign the outbound webhook payload with HMAC-SHA256. Adds X-ASA-Signature: sha256=<hmac> and X-ASA-Timestamp headers so your receiver can verify authenticity.'],
+          ['webhook_headers',             'JSON',   '—', 'Headers to include in the outbound webhook request, as a JSON object. Use this to authenticate to your endpoint. e.g. {"Authorization":"Bearer token","X-Api-Key":"abc"}'],
+          ['webhook_header_<Name>',       'string', '—', 'Flat alternative to webhook_headers JSON — one field per header. Recommended for Therefore (avoids JSON mangling). e.g. webhook_header_Authorization=Bearer token'],
+        ]} />
+
+        <GroupHeading>Webhook — Pre-fetch</GroupHeading>
+        <ParamTable rows={[
+          ['webhook_pre_fetch_url',            'string', '—',    'URL to fetch before rendering the webhook body. The response is available as {{ fetched }} in templates. Used by therefore_update_index to retrieve a concurrency token.'],
+          ['webhook_pre_fetch_method',         'string', 'GET',  'HTTP method for the pre-fetch request.'],
+          ['webhook_pre_fetch_body',           'string', '—',    'Request body for the pre-fetch call. Rendered as a Jinja2 template using the job context before sending.'],
+          ['webhook_pre_fetch_headers',        'JSON',   '—',    'Headers for the pre-fetch request, as a JSON object.'],
+          ['webhook_pre_fetch_header_<Name>',  'string', '—',    'Flat alternative to webhook_pre_fetch_headers JSON. e.g. webhook_pre_fetch_header_Authorization=Basic dXNlcjpwYXNz'],
+        ]} />
+
+        <GroupHeading>Metadata</GroupHeading>
+        <ParamTable rows={[
+          ['metadata', 'JSON', '—', 'Arbitrary key/value data stored with the job and available in webhook templates via {{ metadata }}. Also used as a fallback envelope for all other parameters when Therefore sends everything as a single JSON part.'],
+        ]} />
+      </div>
+
+      {/* ── /api/train ── */}
+      <div className="space-y-3">
+        <div className="flex items-center gap-3">
+          <span className="font-mono font-bold text-sm text-indigo-400">POST</span>
+          <span className="font-mono text-slate-300 text-sm">/api/train</span>
+        </div>
+        <ParamTable rows={[
+          ['file',     'file',   'required', 'Document to add as a training example.'],
+          ['asa_code', 'string', 'required', 'The correct ASA code for this document.'],
+          ['archive',  'bool',   'true',     'Store the file on disk for later review in the admin dashboard.'],
+        ]} />
+      </div>
+
+      {/* ── /api/train/bulk ── */}
+      <div className="space-y-3">
+        <div className="flex items-center gap-3">
+          <span className="font-mono font-bold text-sm text-indigo-400">POST</span>
+          <span className="font-mono text-slate-300 text-sm">/api/train/bulk</span>
+          <span className="text-xs text-slate-500">(admin only)</span>
+        </div>
+        <ParamTable rows={[
+          ['files',    'file[]', 'required', 'One or more documents to add as training examples.'],
+          ['asa_code', 'string', 'required', 'The correct ASA code for all uploaded files.'],
+          ['archive',  'bool',   'true',     'Store the files on disk for later review.'],
+        ]} />
+      </div>
+
+      {/* ── /api/jobs/{job_id}/confirm ── */}
+      <div className="space-y-3">
+        <div className="flex items-center gap-3">
+          <span className="font-mono font-bold text-sm text-indigo-400">POST</span>
+          <span className="font-mono text-slate-300 text-sm">/api/jobs/&#123;job_id&#125;/confirm</span>
+          <span className="text-xs text-slate-500">(application/json)</span>
+        </div>
+        <ParamTable rows={[
+          ['confirmed_code',      'string', 'required', 'The ASA code selected by the reviewer.'],
+          ['confirmed_hierarchy', 'string', '—',        'Hierarchy string for the confirmed code.'],
+          ['confirmed_disposal',  'string', '—',        'Disposal action string for the confirmed code.'],
+          ['train',               'bool',   'false',    'Add this document as a training example after confirming.'],
+          ['train_archive',       'bool',   'true',     'Archive the file when training. Only applies when train=true.'],
+        ]} />
+      </div>
+
+      {/* ── /api/asa-codes ── */}
+      <div className="space-y-3">
+        <div className="flex items-center gap-3">
+          <span className="font-mono font-bold text-sm text-emerald-400">GET</span>
+          <span className="font-mono text-slate-300 text-sm">/api/asa-codes</span>
+        </div>
+        <ParamTable rows={[
+          ['q', 'string', '—', 'Search term (query param). Filters codes by code number, hierarchy, description, or disposal action. Omit to return all codes.'],
+        ]} />
+      </div>
+
+      {/* ── /api/training/examples/{id} ── */}
+      <div className="space-y-3">
+        <div className="flex items-center gap-3">
+          <span className="font-mono font-bold text-sm text-red-400">DELETE</span>
+          <span className="font-mono text-slate-300 text-sm">/api/training/examples/&#123;id&#125;</span>
+          <span className="text-xs text-slate-500">(admin only)</span>
+        </div>
+        <ParamTable rows={[
+          ['delete_file', 'bool', 'false', 'Also delete the archived file from disk (query param).'],
+        ]} />
+      </div>
+
+    </div>
+  )
+}
+
 // ── Page shell ────────────────────────────────────────────────────────────────
 
 export default function HelpPage() {
@@ -766,6 +937,7 @@ export default function HelpPage() {
 
         {activeSection === 0 && <UserGuide />}
         {activeSection === 1 && <ApiReference />}
+        {activeSection === 2 && <ParamReference />}
       </div>
     </div>
   )
